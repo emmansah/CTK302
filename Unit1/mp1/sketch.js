@@ -4,7 +4,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background('green');
   noStroke();
   //stroke(255, 0, 0);
   //strokeWeight(10);
@@ -29,7 +29,8 @@ function draw() {
   arc(479, 300, 280, 280, PI, TWO_PI);
 
   fill('white');
-  text(mouseX + ", " + mouseY, 20, 20);
+  //text(mouseX + ", " + mouseY, 20, 20);
+  text("Lorem ipsum \"dolor sit amet, consectetur adipiscing elit, sed do eiusmod\" tempor incididunt ut labore et dolore magna aliqua. \nFaucibus ornare suspendisse sed nisi lacus sed viverra tellus in. Donec enim diam vulputate ut pharetra. \nMassa id neque aliquam vestibulum morbi blandit cursus. Urna nec tincidunt praesent semper. Lectus arcu bibendum at varius vel pharetra. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Sagittis vitae et leo duis ut. Duis ultricies lacus sed turpis.", 40, 40, 680, 400);
 
 }
 
