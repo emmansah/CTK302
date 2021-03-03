@@ -30,7 +30,7 @@ function setup(){
   img3 = loadImage('assets/performanceover.png');
   textAlign(CENTER);
   imageMode(CENTER);
-  textSize(20);
+  textSize(22);
 
   //code for initializing mic in
   mic = new p5.AudioIn();
@@ -67,7 +67,7 @@ function draw() {
     case 1:
     background(150);
     image(img1, width/2, height/2 + 60, img1.width / 3, img1.height / 3);
-    text("Hillary Hahn, a violinist, is performing Vaughan William's \"The Lark Ascending.\" \nTry making a loud sound and see what happens!", width/2, 40);
+    text("An orchestra is performing Mozart\'s Violin Concerto No. 5. \nTry making noise and see what happens!", width/2, 50);
     vol = (mic.getLevel()).toFixed(2);
     if(vol > .5) {
       state = 2;
@@ -77,7 +77,7 @@ function draw() {
     case 2:
     background('red');
     image(img2, width/2, height/2 + 60, img2.width / 3, img2.height / 3);
-    text("Oh no! The musicians are distracted by the disruption! Quiet down!", width/2, 60);
+    text("Oh no! The musicians are upset! They\'re distracted by the sound!", width/2, 60);
     timer1++;
     if (timer1 > 3*60) {
       state = 1;
@@ -100,7 +100,7 @@ function draw() {
     case 4:
     background('yellow');
     image(img3, width/2, height/2 +60, img3.width / 3, img3.height / 3);
-    text("Yay! They finished the perofrmance!", width/2, 70);
+    text("Yay! They were able to finish the performance!", width/2, 70);
     break;
 
   }
