@@ -133,6 +133,9 @@ function mouseReleased(){
   if(state == -1){
     state = 0;
   }
+  if(state == 4){
+    state = 0;
+  }
 }
 
 
