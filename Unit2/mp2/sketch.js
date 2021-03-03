@@ -1,25 +1,50 @@
 let state = -1;
 let mic;
 let vol;
-let timer = 0;
-let img1;
+let timer1 = 0;
+let timer2 = 0;
+let img1, img2, img3;
+let song1, song2;
+
+
+function preload() {
+  song1 = loadSound("assets/mozart.mp3");
+  song2 = loadSound("assets/clap.mp3");
+
+  song1.loop();
+  song1.pause();
+  song2.pause();
+}
+
+
+
+
+
+
+
 
 function setup(){
-  createCanvas(700, 700);
+  createCanvas(800, 600);
   img1 = loadImage('assets/happyperformance.png');
+  img2 = loadImage('assets/angryperformance.png');
+  img3 = loadImage('assets/performanceover.png');
   textAlign(CENTER);
   imageMode(CENTER);
-  textSize(18);
+  textSize(20);
 
   //code for initializing mic in
   mic = new p5.AudioIn();
   mic.start();
 }
 
-function draw() {
 
+
+
+
+
+
+function draw() {
   //get the sound input
-  vol = (mic.getLevel()).toFixed(2);
   //(mic.getLevel()) gets mic stuff
   //.toFixed(2) rounds to 2 decimal places :)
 
@@ -32,32 +57,89 @@ function draw() {
 
 
     case 0:
-    background(150);
-      image(img1, width/2, height/2, img1.width / 4, img1.height / 4);
-    text("Hillary Hahn, a violinist, is performing Vaughan William's \"The Lark Ascending.\" \nTry making a loud sound and see what happens!", width/2, 40);
-    if(vol > .3) {
+      text("1", 300, 300);
+      //can't jsut have a play command here bc it loops
+      //state = 1 moves to the next state so it won't loop :)
+      song1.play();
       state = 1;
+      break;
+
+    case 1:
+    background(150);
+    image(img1, width/2, height/2 + 60, img1.width / 3, img1.height / 3);
+    text("Hillary Hahn, a violinist, is performing Vaughan William's \"The Lark Ascending.\" \nTry making a loud sound and see what happens!", width/2, 40);
+    vol = (mic.getLevel()).toFixed(2);
+    if(vol > .5) {
+      state = 2;
     }
     break;
 
-    case 1:
+    case 2:
     background('red');
-    text("Oh no! She's distracted by the disruption! Quiet down!", width/2, 40);
-    timer++;
-    if (timer > 3*60) {
-      state = 0;
-      timer = 0;
+    image(img2, width/2, height/2 + 60, img2.width / 3, img2.height / 3);
+    text("Oh no! The musicians are distracted by the disruption! Quiet down!", width/2, 60);
+    timer1++;
+    if (timer1 > 3*60) {
+      state = 1;
+      timer1 = 0;
     }
+    break;
+
+  //  case 3:
+    //text("buffer??", 300, 300);
+  //  state = 4
+  //  break;
+
+    case 3:
+    text("2", 300, 300);
+    song1.pause();
+    song2.play();
+    state = 4;
+    break;
+
+    case 4:
+    background('yellow');
+    image(img3, width/2, height/2 +60, img3.width / 3, img3.height / 3);
+    text("Yay! They finished the perofrmance!", width/2, 70);
     break;
 
   }
+
+
+  timer2++;
+  if (timer2 == 18*60){
+    state = 3;
+    timer2 = 19*60;
+    //if (state > 4) {
+      //state = 0;
+    //}
+  }
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
 
 function mouseReleased(){
   if(state == -1){
     state = 0;
   }
 }
+
+
+
+
+
+
 
 function touchStarted(){
   getAudioContext().resume();
