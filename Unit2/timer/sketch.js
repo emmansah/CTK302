@@ -59,26 +59,3 @@ function draw() {
   }
 
 }
-
-
-
-
-
-function pattern1(){
-  for (let j = 0; j <= height; j++) {
-   for (let i = 0; i <= width; i++) {
-     fill('silver');
-     rect(i * 40, j * 40, 50, 10);
-   }
- }
-}
-
-function pattern2(){
-  for (let j = 0; j <= height; j++) {
-   for (let i = 0; i <= width; i++) {
-     fill('pink');
-     ellipse(i * 40, j * 40, 10, 10);
-     ellipse(i * 40 + 20, j * 40, 13, 13);
-   }
- }
-}
