@@ -1,42 +1,248 @@
 function setup() {
-  // Sets the screen to be 720 pixels wide and 400 pixels high
-  createCanvas(720, 400);
+  createCanvas(720, 450);
+  ellipseMode(CENTER);
+  textAlign(CENTER);
 }
 
 function draw() {
-  background('green');
-  noStroke();
-  //stroke(255, 0, 0);
-  //strokeWeight(10);
 
-  fill('blue');
-  triangle(18, 18, 18, 360, 81, 360);
-  //ellipse(24, 24, 80, 80)
 
-  fill(102);
-  rect(81, 81, 63, 63);
-
-  fill(204);
-  quad(189, 18, 216, 18, 216, 360, 144, 360);
-
-  fill(255);
-  ellipse(252, 144, 72, 72);
-
-  fill('red');
-  triangle(288, 18, 351, 360, 288, 360);
-
-  fill('yellow');
-  arc(479, 300, 280, 280, PI, TWO_PI);
-
-  fill('white');
-  //text(mouseX + ", " + mouseY, 20, 20);
-  text("Lorem ipsum \"dolor sit amet, consectetur adipiscing elit, sed do eiusmod\" tempor incididunt ut labore et dolore magna aliqua. \nFaucibus ornare suspendisse sed nisi lacus sed viverra tellus in. Donec enim diam vulputate ut pharetra. \nMassa id neque aliquam vestibulum morbi blandit cursus. Urna nec tincidunt praesent semper. Lectus arcu bibendum at varius vel pharetra. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Sagittis vitae et leo duis ut. Duis ultricies lacus sed turpis.", 40, 40, 680, 400);
-
-}
+  //avatar who casually chews gum all day, but when they need to, they can use the gum to trap things or as a transportation bubble
+  if (mouseIsPressed) {
+    background(121, 175, 210);
+    noStroke();
 
 
 
+    fill(67, 112, 82);
+    quad(0, 250, 720, 220, 725, 400, 0, 400);
+    //grass
 
-function mouseReleased(){
-   print(mouseX + ", " + mouseY);
+
+
+    push();
+    translate(-30, -100);
+    translate(p5.Vector.fromAngle(millis() / 600, 10));
+    fill(13, 20, 33);
+    ellipse(704, 202, 35, 120);
+    ellipse(704, 130, 65, 35);
+    fill('red');
+    quad(685, 127, 695, 127, 695, 137, 685, 137);
+    quad(710, 127, 720, 127, 720, 137, 710, 137);
+
+    fill(255, 207, 226, 200);
+    ellipse(677, 175, 250, 250);
+    pop();
+    //monster1 right
+
+    push();
+    translate(5, -70);
+    translate(p5.Vector.fromAngle(millis() / 1000, 30));
+    fill(13, 20, 33);
+    ellipse(104, 202, 35, 120);
+    ellipse(104, 130, 65, 35);
+    fill('red');
+    quad(85, 127, 95, 127, 95, 137, 85, 137);
+    quad(110, 127, 120, 127, 120, 137, 110, 137);
+
+    fill(255, 207, 226, 200);
+    ellipse(100, 177, 250, 250);
+    pop();
+    //monster2 left
+
+
+    push();
+    translate(30, 100);
+    translate(p5.Vector.fromAngle(millis() / 600, 50));
+    fill(13, 20, 33);
+    ellipse(604, 302, 35, 120);
+    ellipse(604, 230, 65, 35);
+    fill('red');
+    quad(585, 227, 595, 227, 595, 237, 585, 237);
+    quad(610, 227, 620, 227, 620, 237, 610, 237);
+    fill(13, 20, 33, 100);
+    ellipse(605, 361, 35, 15);
+
+    fill(255, 207, 226, 200);
+    ellipse(624, 293, 250, 250);
+    pop();
+    //monster3 middle
+
+
+
+    fill(97, 62, 35);
+    quad(295, 207, 294, 223, 316, 218, 317, 204);
+    //neck
+    fill(86, 49, 20);
+    quad(295, 215, 316, 211, 316, 200, 294, 204);
+    //neck shadow ugh
+    fill(97, 62, 35);
+    ellipse(306, 176, 80, 65);
+    //head
+    fill(13, 20, 33);
+    ellipse(290, 174, 5, 15);
+    ellipse(320, 174, 5, 15);
+    //eyes
+    fill(13, 20, 33);
+    ellipse(303, 195, 10, 10);
+    //mouth
+    fill(97, 62, 35);
+    quad(270, 226, 275, 226, 271, 259, 266, 259);
+    quad(336, 221, 341, 221, 347, 260, 342, 260);
+    //arms
+    fill(236, 31, 59);
+    quad(275, 218, 336, 217, 328, 260, 290, 258);
+    fill(238, 151, 162);
+    ellipse(274, 219, 20, 20);
+    ellipse(336, 217, 20, 20);
+    //shirt
+    fill(97, 62, 35);
+    quad(296, 300, 296, 325, 305, 325, 305, 300);
+    quad(316, 300, 316, 325, 325, 325, 325, 300);
+    //legs
+    fill(238, 151, 162);
+    quad(290, 258, 328, 260, 342, 297, 283, 302);
+    //skirt
+    fill(236, 31, 59);
+    ellipse(296, 327, 25, 10);
+    ellipse(322, 327, 25, 10);
+    //shoes
+    fill(13, 20, 33);
+    ellipse(255, 150, 60, 60);
+    ellipse(356, 145, 60, 60);
+    triangle(304, 143, 280, 143, 281, 152);
+    triangle(304, 143, 328, 143, 329, 152);
+    //hair
+
+    //body
+
+
+    fill(255, 207, 226, 200);
+    ellipse(465, 210, 100, 100);
+    ellipse(385, 173, 60, 60);
+    ellipse(317, 198, 30, 30);
+    //bubbles
+
+
+
+
+    fill('white');
+    quad(0, 400, 720, 400, 720, 450, 0, 450);
+
+
+    fill('black');
+    textSize(20);
+    let d = 'She can use the gum to trap her attackers, and keep herself safe.';
+    text(d, 20, 415, 700, 440);
+  } else {
+    background(121, 175, 210);
+    noStroke();
+    //sky
+
+    fill('white');
+    quad(0, 400, 720, 400, 720, 450, 0, 450);
+    fill('black');
+    textSize(18);
+    let s = 'Sally lives in a dangerous world that has been taken over by monsters. To protect herself, Sally chews gum, so that when the monsters get too close...';
+    text(s, 10, 408, 700, 440);
+    //writing
+
+    fill(67, 112, 82);
+    quad(0, 250, 720, 220, 725, 400, 0, 400);
+    //grass
+
+
+
+
+
+    fill(97, 62, 35);
+    quad(295, 207, 294, 223, 316, 218, 317, 204);
+    //neck
+    fill(86, 49, 20);
+    quad(295, 215, 316, 211, 316, 200, 294, 204);
+    //neck shadow ugh
+    fill(97, 62, 35);
+    ellipse(306, 176, 80, 65);
+    //head
+    fill(13, 20, 33);
+    ellipse(290, 174, 5, 15);
+    ellipse(320, 174, 5, 15);
+    //eyes
+    fill(13, 20, 33);
+    quad(295, 194, 305, 194, 305, 196, 295, 196);
+    //mouth
+    fill(97, 62, 35);
+    quad(270, 226, 275, 226, 271, 259, 266, 259);
+    quad(336, 221, 341, 221, 347, 260, 342, 260);
+    //arms
+    fill(236, 31, 59);
+    quad(275, 218, 336, 217, 328, 260, 290, 258);
+    fill(238, 151, 162);
+    ellipse(274, 219, 20, 20);
+    ellipse(336, 217, 20, 20);
+    //shirt
+    fill(97, 62, 35);
+    quad(296, 300, 296, 325, 305, 325, 305, 300);
+    quad(316, 300, 316, 325, 325, 325, 325, 300);
+    //legs
+    fill(238, 151, 162);
+    quad(290, 258, 328, 260, 342, 297, 283, 302);
+    //skirt
+    fill(236, 31, 59);
+    ellipse(296, 327, 25, 10);
+    ellipse(322, 327, 25, 10);
+    //shoes
+
+    fill(13, 20, 33);
+    ellipse(255, 150, 60, 60);
+    ellipse(356, 145, 60, 60);
+    triangle(304, 143, 280, 143, 281, 152);
+    triangle(304, 143, 328, 143, 329, 152);
+    //hair
+
+    //body
+
+
+
+    fill(13, 20, 33);
+    ellipse(704, 202, 35, 120);
+    ellipse(704, 130, 65, 35);
+    fill('red');
+    quad(685, 127, 695, 127, 695, 137, 685, 137);
+    quad(710, 127, 720, 127, 720, 137, 710, 137);
+    fill(13, 20, 33, 100);
+    ellipse(705, 264, 35, 15);
+    //monster1 right
+
+    fill(13, 20, 33);
+    ellipse(104, 202, 35, 120);
+    ellipse(104, 130, 65, 35);
+    fill('red');
+    quad(85, 127, 95, 127, 95, 137, 85, 137);
+    quad(110, 127, 120, 127, 120, 137, 110, 137);
+    fill(13, 20, 33, 100);
+    ellipse(105, 264, 35, 15);
+    //monster2 left
+
+    fill(13, 20, 33);
+    ellipse(604, 302, 35, 120);
+    ellipse(604, 230, 65, 35);
+    fill('red');
+    quad(585, 227, 595, 227, 595, 237, 585, 237);
+    quad(610, 227, 620, 227, 620, 237, 610, 237);
+    fill(13, 20, 33, 100);
+    ellipse(605, 364, 35, 15);
+    //monster3 middle
+
+    noFill();
+    stroke(13, 20, 33);
+    curve(324, 180, 307, 190, 307, 199, 318, 200);
+    //mouth curve
+  }
+
+
+
+
+
+
 }
