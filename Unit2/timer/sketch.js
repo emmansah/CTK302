@@ -21,7 +21,7 @@ function draw() {
     fill('black');
     text("state 0", width/2, 20)
     myTimer++;
-    if(myTimer > 3*60){
+    if(myTimer > 2*60){
       myTimer = 0;
       myState = 1;
     }
@@ -37,7 +37,7 @@ function draw() {
     fill('black');
     text("state 1", width/2, 20);
     myTimer++;
-    if(myTimer > 3*60){
+    if(myTimer > 10*60){
       myTimer = 0;
       myState = 2;
     }
@@ -51,7 +51,7 @@ function draw() {
     fill('black');
     text("state 2", width/2, 20);
     myTimer++;
-    if(myTimer > 3*60){
+    if(myTimer > 5*60){
       myTimer = 0;
       myState = 0;
     }
