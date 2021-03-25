@@ -3,8 +3,8 @@ let cars = [];
 let frogPos;
 let state = 0;
 let timer = 0;
-let maxCars = 30;
-let maxTimer = 30;
+let maxCars = 1;
+let maxTimer = 10;
 let song1;
 let f1, f2;
 let flag, oil, gold, diamond, spices, randomNum;
@@ -68,12 +68,14 @@ function draw() {
      image(bg1, width/2, height/2);
      textFont(f1);
      textSize(100);
-      text("WELCOME", width/2, height/2);
+      text("WELCOME", width/2-width/100, height-height/2);
       textFont(f2);
       textSize(38);
-      text("How to build a Western nation: \nA one-step plan. \nStep 1 - Collect resources \nfrom other lands! :)", width/2, height/2+80);
+      textLeading(windowHeight/18);
+      text("\nHow to build a Western nation: \nA one-step plan.", width/8, height-height/2, width-width/4, height-height/2);
+      text("\n1. Use WASD to collect resources from other lands! :)", width/8, height-height/3, width-width/4, height-height/2);
       textSize(28);
-      text("click to start", width/2, height-40);
+      text("click to start", width/8-width/50, height-height/8, width-width/4, height-height/2);
       break;
 
 
@@ -93,10 +95,14 @@ function draw() {
       fill('black');
       textFont(f1);
       textSize(98);
-      text("WIN", width/2, height/2);
+      text("WIN", width/2-width/50, height/2);
       textFont(f2);
-      textSize(48);
-      text("Click to play again", width/2, height/2+300);
+      textSize(38);
+      textLeading(48);
+      textLeading(windowHeight/18);
+      text("Congrats! \n\nYou invaded other lands for your own benefit and created an imperialist nation with systems that are dependent on the exploitation of others!", width/8, height-(height*(1/2)), width-width/4, height-height/2);
+      textSize(28);
+      text("click to play again", width/8-width/100, height-height/10, width-width/4, height-height/2);
       break;
 
       case 3://lose
@@ -106,10 +112,13 @@ function draw() {
       fill('black');
       textFont(f1);
       textSize(98);
-      text("LOSE", width/2, height/2);
+      text("LOSE", width/2-width/50, height/2);
       textFont(f2);
-      textSize(48);
-      text("Click to play again", width/2, height/2+300);
+      textSize(38);
+      textLeading(windowHeight/18);
+      text("\nIt's what you deserve. \n\nYou should probably leave other lands alone anyway :)", width/8, height-height/2, width-width/4, height-height/2)
+      textSize(28);
+      text("click to play again", width/8-width/100, height-height/10, width-width/4, height-height/2);
       break;
 
   }
@@ -187,7 +196,7 @@ function resetTheGame(){
   for (let i = 0; i < maxCars; i++) {
     cars.push(new Car());
   }
-
+frogPos = createVector(width/2, height-100);
 }
 
 
