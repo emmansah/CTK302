@@ -1,4 +1,12 @@
 let cars = [];
+let img;
+
+
+function preload() {
+  img = loadImage("assets/th.jpg");
+
+}
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -12,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  background('grey');
+  background(img);
   cars.push(new Car());
   //putting it in the draw function makes it repeat a lot
 
@@ -35,16 +43,16 @@ class Car {
   // constructor
   constructor() {
     //attributes
-    this.pos = createVector(100, 100);
+    this.pos = createVector(width/2+width/20, height/2);
       //SPAWN. POINT.
-    this.vel = createVector(random(10), random(10));
+    this.vel = createVector(random(-15, 0), random(0, 15));
       //how fast and which direction
     this.r = random(255);
     this.g = random(255);
     this.b = random(255);
     this.a = random(200, 255);
-    this.s = random(5, 20);
-      //dont use this if changing size of text - use textSize :)
+    this.s = random(5, 50);
+
 
   }
 
@@ -52,14 +60,15 @@ class Car {
   //can be named whatever u want
   display() {
     fill(this.r, this.g, this.b, this.a);
-    ellipse(this.pos.x, this.pos.y, this.s);
+    textSize(this.s);
+    text("BEYONCE?", this.pos.x, this.pos.y);
       //one parameter makes an ellipse a circle
   }
 
   move() {
     this.pos.add(this.vel);
     this.a = this.a-5;
-      //fades the color out as it moves??
+      //fades the color out
 
   // if (this.pos.x > width) this.pos.x = 0 ;
   //  if (this.pos.x < 0) this.pos.x = width ;
