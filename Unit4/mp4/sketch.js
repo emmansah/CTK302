@@ -4,7 +4,7 @@ Make sure you turn on orientation lock on your iPhone or Android device. */
 let alpha = 0, beta = 0 , gamma = 0; // gyroscope variablers
 let bunnyImage;
 let xPosition = 0;
-let yPosition = 90;
+let yPosition = 0;
 let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
 
@@ -21,7 +21,7 @@ function setup() {
 
 function draw() {
 
-  background('yellow'); // grey
+  background('pink'); // grey
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -42,12 +42,12 @@ function draw() {
       textAlign(CENTER);
       text("BOO!", width / 2, height / 2);
       textSize(50);
-      text("right?", 1000, -1000);
-      text("left?", -1000, -1000);
-      text("up?", width/2, -5000);
-      text("down?", width/2, 0);
+      text("right?", width, height/2);
+      text("left?", 0, height/2);
+      text("up?", width/2, 0);
+      text("down?", width/2, height);
 
-  image(bunnyImage, width/2, -1000, 300, 300);
+  image(bunnyImage, width/2, height/2, 300, 300);
   // rect(0, 0, 100, 100) ;
   pop();
 
