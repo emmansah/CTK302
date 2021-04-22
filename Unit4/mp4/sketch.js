@@ -22,19 +22,19 @@ function setup() {
 
 function draw() {
 
-  background('gray'); // grey
+  background('red'); // grey
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
   xPosition = map(gamma, -60, 60, 0, width);
-  yPosition = map(beta, -30, 30, 0, height);
+  yPosition = map(alpha, -30, 30, 0, height);
 
-//  push(); // before you use translate, rotate, or scale commands, push and then pop after
+  push(); // before you use translate, rotate, or scale commands, push and then pop after
 
-  //translate(xPosition, yPosition); // move everything over by x, y
+  translate(xPosition, yPosition); // move everything over by x, y
 
-      //  rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
+       rotate(radians(beta)); // rotate the bunny depending on the alpha intake
 
       fill('black');
       noStroke();
@@ -44,7 +44,7 @@ function draw() {
 
   image(bunnyImage, 0, 0, 500, 500);
   // rect(0, 0, 100, 100) ;
-//  pop();
+  pop();
 
 
   // Text commands that display debugging data
