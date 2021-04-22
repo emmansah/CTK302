@@ -22,7 +22,7 @@ function setup() {
 
 function draw() {
 
-  background('yellow'); // grey
+  background('red'); // grey
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -42,7 +42,7 @@ function draw() {
       textAlign(CENTER);
       text("BOO!", width / 2, height / 2);
 
-  image(bunnyImage, 0, 0, 500, 500);
+  image(bunnyImage, 0, 0, 100, 100);
   // rect(0, 0, 100, 100) ;
   pop();
 
