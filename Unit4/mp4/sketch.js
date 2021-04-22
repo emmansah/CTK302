@@ -10,9 +10,9 @@ let x = 0, y = 0, z = 0 ; // accelerometer data
 
 function setup() {
 
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight, P3D);
 
-
+  avoidClipping();
 
   bunnyImage = loadImage("assets/bunny.png");
   imageMode(CENTER);
@@ -22,7 +22,7 @@ function setup() {
 
 function draw() {
 
-  background('yellow'); // grey
+  background('pink'); // grey
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -42,6 +42,7 @@ function draw() {
       textSize(200);
       textAlign(CENTER);
       text("BOO!", width / 2, height / 2);
+      text("right?", width, height/2);
 
   image(bunnyImage, 90, 90, 300, 300);
   // rect(0, 0, 100, 100) ;
