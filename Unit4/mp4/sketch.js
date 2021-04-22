@@ -5,14 +5,13 @@ let alpha = 0, beta = 0 , gamma = 0; // gyroscope variablers
 let bunnyImage;
 let xPosition = 0;
 let yPosition = 0;
+let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
 
 
 function setup() {
 
-  createCanvas(windowWidth, windowHeight, P3D);
-
-  avoidClipping();
+  createCanvas(windowWidth, windowHeight);
 
   bunnyImage = loadImage("assets/bunny.png");
   imageMode(CENTER);
@@ -29,11 +28,11 @@ function draw() {
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
   xPosition = map(gamma, -20, 20, 0, width);
   yPosition = map(beta, -20, 20, 0, height);
-//  zPosition = map(alpha, -90, 90, 0, width);
+  zPosition = map(alpha, -90, 90, 0, width);
 
   push(); // before you use translate, rotate, or scale commands, push and then pop after
 
-  translate(xPosition, yPosition); // move everything over by x, y
+  translate(xPosition, yPosition, zPosition); // move everything over by x, y
 
        //rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
 
