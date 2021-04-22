@@ -43,7 +43,7 @@ function draw() {
       textAlign(CENTER);
       text("BOO!", width / 2, height / 2);
 
-  image(bunnyImage, 0, 0, 0, 300, 300);
+  image(bunnyImage, 0, 0, 300, 300);
   // rect(0, 0, 100, 100) ;
   pop();
 
