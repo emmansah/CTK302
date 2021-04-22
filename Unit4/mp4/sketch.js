@@ -22,7 +22,7 @@ function setup() {
 
 function draw() {
 
-  background('#c6f5ff'); // light blue
+  background('gray'); // grey
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -34,7 +34,7 @@ function draw() {
 
   translate(xPosition, yPosition); // move everything over by x, y
 
-  rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
+      //  rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
 
   image(bunnyImage, 0, 0, 500, 500);
   // rect(0, 0, 100, 100) ;
