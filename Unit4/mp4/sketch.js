@@ -30,9 +30,9 @@ function draw() {
   xPosition = map(gamma, -60, 60, 0, width);
   yPosition = map(beta, -30, 30, 0, height);
 
-  push(); // before you use translate, rotate, or scale commands, push and then pop after
+//  push(); // before you use translate, rotate, or scale commands, push and then pop after
 
-  translate(xPosition, yPosition); // move everything over by x, y
+  //translate(xPosition, yPosition); // move everything over by x, y
 
       //  rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
 
@@ -44,7 +44,7 @@ function draw() {
 
   image(bunnyImage, 0, 0, 500, 500);
   // rect(0, 0, 100, 100) ;
-  pop();
+//  pop();
 
 
   // Text commands that display debugging data
