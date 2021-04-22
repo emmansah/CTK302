@@ -22,14 +22,14 @@ function setup() {
 
 function draw() {
 
-  background('yellow'); // grey
+  background('red'); // grey
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
-  xPosition = map(gamma, -10, 10, 0, width);
-  yPosition = map(beta, 0, 90, 0, height);
-  zPosition = map(beta, 0, 90, 0, width);
+  xPosition = map(gamma, -90, 90, 0, width);
+  yPosition = map(beta, -90, 90, 0, height);
+  zPosition = map(alpha, -90, 90, 0, width);
 
   push(); // before you use translate, rotate, or scale commands, push and then pop after
 
@@ -43,7 +43,7 @@ function draw() {
       textAlign(CENTER);
       text("BOO!", width / 2, height / 2);
 
-  image(bunnyImage, 0, 0, 100, 100);
+  image(bunnyImage, 0, 0, 300, 300);
   // rect(0, 0, 100, 100) ;
   pop();
 
