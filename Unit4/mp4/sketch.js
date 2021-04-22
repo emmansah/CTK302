@@ -22,13 +22,13 @@ function setup() {
 
 function draw() {
 
-  background('blue'); // grey
+  background('yellow'); // grey
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
-  xPosition = map(gamma, -60, 60, 0, width);
-  yPosition = map(beta, -30, 30, 0, height);
+  xPosition = map(gamma, -10, 10, 0, width);
+  yPosition = map(beta, 0, 90, 0, height);
 
   push(); // before you use translate, rotate, or scale commands, push and then pop after
 
