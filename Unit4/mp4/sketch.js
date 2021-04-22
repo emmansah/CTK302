@@ -22,19 +22,19 @@ function setup() {
 
 function draw() {
 
-  background('red'); // grey
+  background('blue'); // grey
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
   xPosition = map(gamma, -60, 60, 0, width);
-  yPosition = map(alpha, -30, 30, 0, height);
+  yPosition = map(beta, -30, 30, 0, height);
 
   push(); // before you use translate, rotate, or scale commands, push and then pop after
 
   translate(xPosition, yPosition); // move everything over by x, y
 
-       rotate(radians(beta)); // rotate the bunny depending on the alpha intake
+       rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
 
       fill('black');
       noStroke();
@@ -49,16 +49,16 @@ function draw() {
 
   // Text commands that display debugging data
   textAlign(LEFT);
-  textSize(20);
+  textSize(22);
   fill('black');
   text("orientation data:", 25, 25);
-  textSize(15);
+  textSize(20);
   text("alpha: " + alpha, 25, 50);
   text("beta: " + beta, 25, 70);
   text("gamma: " + gamma, 25, 90);
-  textSize(20);
+  textSize(22);
   text("acceleration data:", 25, 125);
-  textSize(15);
+  textSize(20);
   text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
   text("y = " + y.toFixed(2), 25, 170);
   text("z = " + z.toFixed(4), 25, 190);
