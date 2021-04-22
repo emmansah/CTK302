@@ -36,6 +36,12 @@ function draw() {
 
       //  rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
 
+      fill('black');
+      noStroke();
+      textSize(200);
+      textAlign(CENTER);
+      text("BOO!", width / 2, height / 2 - height/3);
+      
   image(bunnyImage, 0, 0, 500, 500);
   // rect(0, 0, 100, 100) ;
   pop();
@@ -58,11 +64,11 @@ function draw() {
   text("z = " + z.toFixed(4), 25, 190);
 
   // Text that makes CTK type in the background
-  fill('black');
-  noStroke();
-  textSize(200);
-  textAlign(CENTER);
-  text("BOO!", width / 2, height / 2 - height/3);
+    // fill('black');
+    // noStroke();
+    // textSize(200);
+    // textAlign(CENTER);
+    // text("BOO!", width / 2, height / 2 - height/3);
 
 }
 
