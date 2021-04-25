@@ -7,10 +7,35 @@ let yPosition = 0;
 
 let cars = [];
 let frogPos;
+let myPix = [];
+let f1, f2;
+let flag, oil, gold, diamond, spices, randomNum;
+let bg1, bg2, bg3, bg4;
+
+
+
+
+function preload() {
+  oil = loadImage("assets/oil_.png");
+  gold = loadImage("assets/gold_.png");
+  diamond = loadImage("assets/diamond_.png");
+  spices = loadImage("assets/spices_.png");
+  myPix = [oil, gold, diamond, spices];
+
+}
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  textAlign(CENTER);
+  imageMode(CENTER);
+  f1 = loadFont("assets/RubberStamp.ttf");
+  f2 = loadFont("assets/1942.ttf");
+  flag = loadImage("assets/flag_.png");
+  bg1 = loadImage('assets/bg1.png');
+  bg2 = loadImage('assets/earth_.png');
+  bg3 = loadImage('assets/win_.png');
+  bg4 = loadImage('assets/lose_.png');
 
   alpha = 0;
   beta = 0;
@@ -79,4 +104,58 @@ function draw() {
 }
 
 
-function
+function deviceShaken(){
+  cars = [];
+  for (let i = 0; i < 40; i++){
+    cars.push(new Car());
+  }
+}
+
+
+window.addEventListener('deviceorientation', function(e) {
+  alpha = e.alpha;
+  beta = e.beta;
+  gamma = e.gamma;
+});
+
+// Read in accelerometer data
+window.addEventListener('devicemotion', function(e) {
+  // get accelerometer values
+  x = e.acceleration.x;
+  y = e.acceleration.y;
+  z = e.acceleration.z;
+});
+
+
+
+
+class Car {
+
+    // constructor and attributes
+    constructor() {
+      this.pos = createVector(100, 100);
+      this.vel = createVector(random(-4, 4), random(-4, 4));
+      this.col = color(random(255), random(255), random(255));
+      this.width = random(30, 70);
+      this.image = random(myPix);
+        //random image from myPix array
+    }
+
+    // methods
+
+    display() {
+        image(this.image,this.pos.x, this.pos.y);
+    }
+
+
+
+    move() {
+      this.pos.add(this.vel);
+      if (this.pos.x > width) this.pos.x = 0;
+      if (this.pos.x < 0) this.pos.x = width;
+      if (this.pos.y > height) this.pos.y = 0;
+      if (this.pos.y < 0) this.pos.y = height;
+
+    }
+
+}
