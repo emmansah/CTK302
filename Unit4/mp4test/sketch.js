@@ -8,6 +8,15 @@ let yPosition = 0;
 let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
 
+//new!!
+var weather;
+var weatherID = 0; // returned in the JSON weather element
+var myState = 0;
+var k = 0;
+var windspeed = 0 ;
+var temp = 0;
+var desk = "";
+//!!
 
 function setup() {
 
@@ -17,7 +26,35 @@ function setup() {
   imageMode(CENTER);
   rectMode(CENTER);
 
+//new!!
+  var myCityString = 'https://api.openweathermap.org/data/2.5/weather?q=Hinsdale,IL,US&units=imperial&';
+
+  //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
+
+  var myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561'; // USE YOUR ID HERE, take out the x's!!!
+
+  var myBigString = myCityString + myIDString ;
+
+  loadJSON(myBigString, gotData); // that gotData function happens when JSON comes back.
+//!!
+
 }
+
+
+//function gotData is new!!
+function gotData(data) {
+
+  weather = data;
+  console.log(weather); // for debugging purposes, print out the JSON data when we get it.
+  windspeed = weather.wind.speed;
+  temp = weather.main.temp;
+  desc = weather.weather[0].description;
+
+}
+//!!
+
+
+
 
 function draw() {
 
@@ -74,6 +111,40 @@ function draw() {
     // textSize(200);
     // textAlign(CENTER);
     // text("BOO!", width / 2, height / 2 - height/3);
+
+
+//new!!
+    switch (myState) {
+      case 0:
+        if (weather) {
+          myState = 1;
+        }
+        break;
+
+      case 1:
+        noStroke();
+        background(163, 194, 207);
+        fill(169, 207, 163);
+        rect(0, 250, width, height);
+        fill('black');
+        text("What is the weather in " + weather.name + "?", width/2, 280);
+        text("windspeed is " + windspeed, width/2, 325);
+        text("temperature is " + temp, width/2, 350);
+        text("description: " + desc, width/2, 375);
+
+
+        //thermometer
+        fill('red');
+
+        var t = map(temp, -10, 100, 10, height-10);
+        rect(width-50, height-10, 30, -t);
+
+        stroke('black');
+        fill('white');
+        rect(width-30, 10, 20, 380);
+
+        break;
+//!!
 
 }
 
