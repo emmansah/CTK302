@@ -22,9 +22,7 @@ function setup() {
 
   createCanvas(windowWidth, windowHeight);
 
-  bunnyImage = loadImage("assets/bunny.png");
-  imageMode(CENTER);
-  rectMode(CENTER);
+
 
 //new!!
   var myCityString = 'https://api.openweathermap.org/data/2.5/weather?q=Hinsdale,IL,US&units=imperial&';
@@ -37,6 +35,10 @@ function setup() {
 
   loadJSON(myBigString, gotData); // that gotData function happens when JSON comes back.
 //!!
+
+bunnyImage = loadImage("assets/bunny.png");
+imageMode(CENTER);
+rectMode(CENTER);
 
 }
 
@@ -58,23 +60,8 @@ function gotData(data) {
 
 function draw() {
   //new!!
-      switch (myState) {
-        case 0:
-          if (weather) {
-            myState = 1;
-          }
-          break;
 
-        case 1:
-          noStroke();
-          background('blue');
-          fill('black');
-          text("What is the weather in " + weather.name + "?", width/2, height/2);
-          text("windspeed is " + windspeed, width/2, height/2 + 30);
-          text("temperature is " + temp, width/2, height/2 + 60);
-          text("description: " + desc, width/2, height/2 + 90);
 
-          break;
   //!!
 
   background('pink'); // grey
@@ -104,6 +91,13 @@ function draw() {
       text("down?", width/2, height);
 
   image(bunnyImage, width/2, height/2, 300, 300);
+
+  background('blue');
+  fill('black');
+  text("What is the weather in " + weather.name + "?", width/2, height/2);
+  text("windspeed is " + windspeed, width/2, height/2 + 30);
+  text("temperature is " + temp, width/2, height/2 + 60);
+  text("description: " + desc, width/2, height/2 + 90);
   // rect(0, 0, 100, 100) ;
   pop();
 
