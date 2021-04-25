@@ -57,6 +57,25 @@ function gotData(data) {
 
 
 function draw() {
+  //new!!
+      switch (myState) {
+        case 0:
+          if (weather) {
+            myState = 1;
+          }
+          break;
+
+        case 1:
+          noStroke();
+          background('blue');
+          fill('black');
+          text("What is the weather in " + weather.name + "?", width/2, height/2);
+          text("windspeed is " + windspeed, width/2, height/2 + 30);
+          text("temperature is " + temp, width/2, height/2 + 60);
+          text("description: " + desc, width/2, height/2 + 90);
+
+          break;
+  //!!
 
   background('pink'); // grey
 
@@ -113,38 +132,7 @@ function draw() {
     // text("BOO!", width / 2, height / 2 - height/3);
 
 
-//new!!
-    switch (myState) {
-      case 0:
-        if (weather) {
-          myState = 1;
-        }
-        break;
 
-      case 1:
-        noStroke();
-        background(163, 194, 207);
-        fill(169, 207, 163);
-        rect(0, 250, width, height);
-        fill('black');
-        text("What is the weather in " + weather.name + "?", width/2, 280);
-        text("windspeed is " + windspeed, width/2, 325);
-        text("temperature is " + temp, width/2, 350);
-        text("description: " + desc, width/2, 375);
-
-
-        //thermometer
-        fill('red');
-
-        var t = map(temp, -10, 100, 10, height-10);
-        rect(width-50, height-10, 30, -t);
-
-        stroke('black');
-        fill('white');
-        rect(width-30, 10, 20, 380);
-
-        break;
-//!!
 
 }
 
