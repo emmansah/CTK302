@@ -9,13 +9,13 @@ let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
 
 //new!!
-var weather;
-var weatherID = 0; // returned in the JSON weather element
-var myState = 0;
-var k = 0;
-var windspeed = 0 ;
-var temp = 0;
-var desk = "";
+let weather;
+let weatherID = 0; // returned in the JSON weather element
+let myState = 0;
+let k = 0;
+let windspeed = 0 ;
+let temp = 0;
+let desk = "";
 //!!
 
 function setup() {
