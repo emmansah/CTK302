@@ -38,4 +38,45 @@ function draw() {
   push();
   translate(xPosition, yPosition);
 
+
+  fill('green');
+  ellipse(0, 0, 80, 80);
+  pop();
+
+  frogPos.x = xPosition;
+  frogPos.y = yPosition;
+
+
+  for(let i = 0; i < cars.length; i++){
+    cars[i].display();
+    cars[i].drive();
+    if(cars[i].pos.dist(frogPos) < 50){
+      cars.splice(i, 1);
+    }
+  }
+
+
+  fill('white');
+  textSize(40);
+  textAlign(CENTER);
+  text("your words/image here", width/2, 600, windowWidth - 200, windowHeight - 200);
+
+
+  textAlign(LEFT);
+  textSize(20);
+  fill('black');
+  text("orientation data:", 25, 25);
+  textSize(15);
+  text("alpha: " + alpha, 25, 50);
+  text("beta: " + beta, 25, 70);
+  text("gamma: " + gamma, 25, 90);
+  textSize(20);
+  text("acceleration data:", 25, 125);
+  textSize(15);
+  text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
+  text("y = " + y, 25, 170);
+  text("z = " + z), 25, 190);
 }
+
+
+function
