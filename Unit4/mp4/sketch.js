@@ -26,7 +26,7 @@ function draw() {
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
-  xPosition = map(gamma, -20, 20, 0, width);
+  xPosition = map(gamma, -10, 30, 0, width);
   yPosition = map(beta, 70, 90, 0, height);
   zPosition = map(alpha, -90, 90, 0, width);
 
