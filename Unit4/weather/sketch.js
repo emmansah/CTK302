@@ -56,7 +56,7 @@ function draw() {
       text("What is the weather in " + weather.name + "?", width/2, 280);
       text("windspeed is " + windspeed, width/2, 325);
       text("temperature is " + temp, width/2, 350);
-      text("descripton " + desc, width/2, 375);
+      text("description: " + desc, width/2, 375);
 
 
 
