@@ -102,26 +102,25 @@ function draw() {
 
   }
 
+}
 
-  function changePlace(){
-    myText = myInput.value();
-    getInfo();
-  }
+function changePlace(){
+  myText = myInput.value();
+  getInfo();
+}
 
 
-  function getInfo(){
+function getInfo(){
 
-    myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myText+',US&units=imperial&';
+  myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myText+',US&units=imperial&';
 
-    //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
+  //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
 
-    myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561'; // USE YOUR ID HERE, take out the x's!!!
+  myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561'; // USE YOUR ID HERE, take out the x's!!!
 
-    myBigString = myCityString + myIDString ;
+  myBigString = myCityString + myIDString ;
 
-    loadJSON(myBigString, gotData); // that gotData function happens when JSON comes back.
+  loadJSON(myBigString, gotData); // that gotData function happens when JSON comes back.
 
-    myState = 1;
-  }
-
+  myState = 1;
 }
