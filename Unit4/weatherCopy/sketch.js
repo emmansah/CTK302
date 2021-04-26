@@ -7,7 +7,7 @@ var x = 0;
 var windspeed = 0 ;
 var temp = 0;
 var desk = "";
-var myInput;
+var myInput = "";
 var button;
 var myText;
 var myCityString = '';
@@ -18,7 +18,7 @@ var myBigString = '';
 function setup() {
   createCanvas(400, 400);
 
-
+myInput = createInput();
 
   // HERE is the call to get the weather.
 
@@ -45,15 +45,15 @@ function draw() {
 
     case 0:
     background('red');
-    //myText = ;
 
-    myInput = createInput();
-    myInput.position(width/2, 200);
+    //myInput.position(width/2, 200);
 
     button = createButton('submit');
     button.position(width/2, 300);
 
     button.mousePressed(changePlace);
+
+    myText = '';
     break;
 
     case 1:
