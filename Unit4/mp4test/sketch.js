@@ -29,10 +29,7 @@ let myBigString = '';
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
-  myInput = createInput();
-  myInput.position(width/2-width/6, height/2);
-  button = createButton('submit');
-  button.position(width/2-width/21, height/1.5);
+
 
 rectMode(CENTER);
 
@@ -62,6 +59,10 @@ function draw() {
   switch (myState) {
     case 0:
     background('red');
+    myInput = createInput();
+    myInput.position(width/2-width/6, height/2);
+    button = createButton('submit');
+    button.position(width/2-width/21, height/1.5);
     button.mousePressed(changePlace);
 
     myText = '';

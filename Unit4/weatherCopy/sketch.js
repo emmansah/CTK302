@@ -5,7 +5,8 @@ var weatherID = 0; // returned in the JSON weather element
 var myState = 0;
 var x = 0;
 var windspeed = 0 ;
-var temp = 0;
+var rtemp = 0;
+var fltemp = 0;
 var desk = "";
 var myInput = "";
 var button;
@@ -34,7 +35,8 @@ function gotData(data) {
   weather = data;
   console.log(weather); // for debugging purposes, print out the JSON data when we get it.
   windspeed = weather.wind.speed;
-  temp = weather.main.temp;
+  rtemp = weather.main.temp;
+  fltemp = weather.main.feels_like;
   desc = weather.weather[0].description;
 
 }
@@ -62,13 +64,17 @@ function draw() {
     case 2:
       noStroke();
       background(163, 194, 207);
-      fill(169, 207, 163);
-      rect(0, 250, width, height);
       fill('black');
-      text("What is the weather in " + weather.name + "?", width/2, 280);
-      text("windspeed is " + windspeed, width/2, 325);
-      text("temperature is " + temp, width/2, 350);
-      text("description: " + desc, width/2, 375);
+      textSize(20);
+      text("What is the weather in " + weather.name + "?", width/2, 100);
+
+      textSize(48);
+        text(rtemp + "°F", width/2, 350);
+
+          textSize(10);
+      text("feels like" + fltemp, width/2, height/2 + height/5)
+      text("windspeed is " + windspeed, width/2, height/2 + height/7);
+      text("description: " + desc, width/2, height/2+height/6);
 
 
       // cloud
@@ -86,7 +92,7 @@ function draw() {
       //thermometer
       fill('red');
 
-      var t = map(temp, -10, 100, 10, height-10);
+      var t = map(rtemp, -10, 100, 10, height-10);
       rect(width-50, height-10, 30, -t);
 
       stroke('black');
