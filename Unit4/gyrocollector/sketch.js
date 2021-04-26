@@ -1,17 +1,12 @@
-let beta, gamma;
-let x = 0;
-let y = 0;
-let z = 0;
-let xPosition = 0;
-let yPosition = 0;
+var beta, gamma;
+var x = 0;
+var y = 0;
+var z = 0;
+var xPosition = 0;
+var yPosition = 0;
 
-let cars = [];
-let frogPos;
-let myPix = [];
-let f1, f2;
-let flag, oil, gold, diamond, spices, randomNum;
-let bg1, bg2, bg3, bg4;
-
+var cars = [];
+var frogPos;
 
 
 
@@ -27,26 +22,17 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  textAlign(CENTER);
-  imageMode(CENTER);
-  f1 = loadFont("assets/RubberStamp.ttf");
-  f2 = loadFont("assets/1942.ttf");
-  flag = loadImage("assets/flag_.png");
-  bg1 = loadImage('assets/bg1.png');
-  bg2 = loadImage('assets/earth_.png');
-  bg3 = loadImage('assets/win_.png');
-  bg4 = loadImage('assets/lose_.png');
 
   alpha = 0;
   beta = 0;
   gamma = 0;
 
-  for(let i = 0; i < 40; i++){
+  for(var i = 0; i < 40; i++){
     cars.push(new Car());
   }
 
 
-  fromPos = createVector(width/2, height/80);
+  fromPos = createVector(width/2, height - 80);
 
   imadeMode(CENTER);
   rectMode(CENTER);
@@ -72,7 +58,7 @@ function draw() {
   frogPos.y = yPosition;
 
 
-  for(let i = 0; i < cars.length; i++){
+  for(var i = 0; i < cars.length; i++){
     cars[i].display();
     cars[i].drive();
     if(cars[i].pos.dist(frogPos) < 50){
@@ -106,7 +92,7 @@ function draw() {
 
 function deviceShaken(){
   cars = [];
-  for (let i = 0; i < 40; i++){
+  for (var i = 0; i < 40; i++){
     cars.push(new Car());
   }
 }
@@ -129,28 +115,32 @@ window.addEventListener('devicemotion', function(e) {
 
 
 
-class Car {
+function Car() {
 
     // constructor and attributes
-    constructor() {
       this.pos = createVector(100, 100);
       this.vel = createVector(random(-4, 4), random(-4, 4));
-      this.col = color(random(255), random(255), random(255));
-      this.width = random(30, 70);
-      this.image = random(myPix);
+      this.r = random(255);
+      this.g = random(255);
+      this.b = random(255);
+      this.a = random(255);
         //random image from myPix array
-    }
+
 
     // methods
 
-    display() {
-        image(this.image,this.pos.x, this.pos.y);
+    this.display = function() {
+        fill(this.r, this.g, this.b, this.a);
+        ellipse(this.pos.x, this.pos.y, 50, 50); //??
+        ellipse(this.pos.x + 35, this.pos.y, 50, 50);
+        rect(this.pos.x + 17, this.pos.y - 30, 80, 60);
     }
 
 
 
-    move() {
+    this.drive = function() {
       this.pos.add(this.vel);
+
       if (this.pos.x > width) this.pos.x = 0;
       if (this.pos.x < 0) this.pos.x = width;
       if (this.pos.y > height) this.pos.y = 0;
