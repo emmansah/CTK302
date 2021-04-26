@@ -19,7 +19,7 @@ let desc = "";
 ///extra new$$$
 let myInput = "";
 let button;
-let myText;
+let myText = 'Chicago';
 let myCityString = '';
 let myIDString = '';
 let myBigString = '';
@@ -30,10 +30,10 @@ function setup() {
 
   createCanvas(windowWidth, windowHeight);
 
-  myInput = createInput();
-  myInput.position(width/2-width/6, height/2);
-  button = createButton('submit');
-  button.position(width/2-width/21, height/1.5);
+  // myInput = createInput();
+  // myInput.position(width/2-width/6, height/2);
+  // button = createButton('submit');
+  // button.position(width/2-width/21, height/1.5);
 
 rectMode(CENTER);
 
@@ -62,9 +62,10 @@ function draw() {
   switch (myState) {
     case 0:
     background('red');
-    button.mousePressed(changePlace);
+  //  button.mousePressed(changePlace);
 
-    myText = '';
+    //myText = '';
+    getInfo();
     break;
 
     case 1:
@@ -82,7 +83,7 @@ function draw() {
       text("windspeed is " + windspeed, width/2, 325);
       text("temperature is " + temp, width/2, 350);
       text("description: " + desc, width/2, 375);
-      
+
       xPosition = map(gamma, -10, 30, 0, width);
       yPosition = map(beta, 60, 90, 0, height);
       zPosition = map(alpha, -80, 130, 0, width);
@@ -138,10 +139,10 @@ function draw() {
   }
 }
 
-function changePlace(){
-  myText = myInput.value();
-  getInfo();
-}
+// function changePlace(){
+//   myText = myInput.value();
+//   getInfo();
+// }
 
 
 function getInfo(){
