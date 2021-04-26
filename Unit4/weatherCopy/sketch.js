@@ -16,9 +16,10 @@ var myBigString = '';
 
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
 
 myInput = createInput();
+myInput.position(width/2-width/6, height/2);
 
   // HERE is the call to get the weather.
 
@@ -49,7 +50,7 @@ function draw() {
     //myInput.position(width/2, 200);
 
     button = createButton('submit');
-    button.position(width/2, 300);
+    button.position(width/2-width/21, height/1.5);
 
     button.mousePressed(changePlace);
 

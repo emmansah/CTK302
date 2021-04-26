@@ -30,6 +30,7 @@ function setup() {
 
   createCanvas(windowWidth, windowHeight);
   myInput = createInput();
+  myInput.position(width/2-width/6, height/2);
 
 
 rectMode(CENTER);
@@ -62,7 +63,7 @@ function draw() {
     background('red');
 
     button = createButton('submit');
-    button.position(width/2, 300);
+    button.position(width/2-width/21, height/1.5);
 
     button.mousePressed(changePlace);
 
@@ -77,14 +78,7 @@ function draw() {
 
     case 2:
       noStroke();
-      background(163, 194, 207);
-      fill(169, 207, 163);
-      rect(0, 250, width, height);
-      fill('black');
-      text("What is the weather in " + weather.name + "?", width/2, 280);
-      text("windspeed is " + windspeed, width/2, 325);
-      text("temperature is " + temp, width/2, 350);
-      text("description: " + desc, width/2, 375);
+      background(yellow);
 
 
       xPosition = map(gamma, -10, 30, 0, width);
@@ -93,6 +87,12 @@ function draw() {
 
       push();
 
+      fill('black');
+      text("What is the weather in " + weather.name + "?", width/2, 280);
+      text("windspeed is " + windspeed, width/2, 325);
+      text("temperature is " + temp, width/2, 350);
+      text("description: " + desc, width/2, 375);
+      
       translate(xPosition, yPosition, zPosition);
 
           fill('black');
@@ -115,7 +115,6 @@ function draw() {
 
           // move the cloud's x position
           k = k + windspeed/4;
-          if (k-300 > width) k = 0;
 
       pop();
 
