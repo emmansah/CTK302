@@ -7,23 +7,23 @@ var x = 0;
 var windspeed = 0 ;
 var temp = 0;
 var desk = "";
+var myInput;
+var button;
+var myText;
+var myCityString = '';
+var myIDString = '';
+var myBigString = '';
+
 
 function setup() {
   createCanvas(400, 400);
 
+
+
   // HERE is the call to get the weather.
 
-  var myCityString = 'https://api.openweathermap.org/data/2.5/weather?q=Chicago,IL,US&units=imperial&';
-
-  //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
-
-  var myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561'; // USE YOUR ID HERE, take out the x's!!!
-
-  var myBigString = myCityString + myIDString ;
-
-  loadJSON(myBigString, gotData); // that gotData function happens when JSON comes back.
-
 }
+
 
 
 function gotData(data) {
@@ -40,14 +40,29 @@ function gotData(data) {
 function draw() {
   textAlign(CENTER);
   textSize(20);
+
   switch (myState) {
+
     case 0:
+    background('red');
+    //myText = ;
+
+    myInput = createInput();
+    myInput.position(width/2, 200);
+
+    button = createButton('submit');
+    button.position(width/2, 300);
+
+    button.mousePressed(changePlace);
+    break;
+
+    case 1:
       if (weather) {
-        myState = 1;
+        myState = 2;
       }
       break;
 
-    case 1:
+    case 2:
       noStroke();
       background(163, 194, 207);
       fill(169, 207, 163);
@@ -86,4 +101,27 @@ function draw() {
       break;
 
   }
+
+
+  function changePlace(){
+    myText = myInput.value();
+    getInfo();
+  }
+
+
+  function getInfo(){
+
+    myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myText+',US&units=imperial&';
+
+    //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
+
+    myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561'; // USE YOUR ID HERE, take out the x's!!!
+
+    myBigString = myCityString + myIDString ;
+
+    loadJSON(myBigString, gotData); // that gotData function happens when JSON comes back.
+
+    myState = 1;
+  }
+
 }
