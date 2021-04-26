@@ -35,8 +35,8 @@ function gotData(data) {
   weather = data;
   console.log(weather); // for debugging purposes, print out the JSON data when we get it.
   windspeed = weather.wind.speed;
-  rtemp = weather.main.temp;
-  fltemp = weather.main.feels_like;
+  rtemp = round(weather.main.temp);
+  fltemp = round(weather.main.feels_like);
   desc = weather.weather[0].description;
 
 }

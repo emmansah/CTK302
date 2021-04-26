@@ -19,7 +19,7 @@ let desc = "";
 ///extra new$$$
 let myInput = "";
 let button;
-let myText = 'Chicago';
+let myText;
 let myCityString = '';
 let myIDString = '';
 let myBigString = '';
@@ -29,11 +29,11 @@ let myBigString = '';
 function setup() {
 
   createCanvas(windowWidth, windowHeight);
-
-  // myInput = createInput();
-  // myInput.position(width/2-width/6, height/2);
-  // button = createButton('submit');
-  // button.position(width/2-width/21, height/1.5);
+  //getInfo();
+  myInput = createInput();
+   myInput.position(width/2-width/6, height/2);
+   button = createButton('submit');
+   button.center();
 
 rectMode(CENTER);
 
@@ -60,13 +60,13 @@ function draw() {
   textSize(20);
 
   switch (myState) {
-    case 0:
-    background('red');
-  //  button.mousePressed(changePlace);
 
-    //myText = '';
-    getInfo();
+
+    case 0:
+    background('pink');
+    button.mousePressed(getInfo);
     break;
+
 
     case 1:
       if (weather) {
@@ -76,13 +76,13 @@ function draw() {
 
     case 2:
       noStroke();
-      background(yellow);
-
-      fill('black');
-      text("What is the weather in " + weather.name + "?", width/2, 280);
-      text("windspeed is " + windspeed, width/2, 325);
-      text("temperature is " + temp, width/2, 350);
-      text("description: " + desc, width/2, 375);
+      background('yellow');
+      //
+      // fill('black');
+      // text("What is the weather in " + weather.name + "?", width/2, 280);
+      // text("windspeed is " + windspeed, width/2, 325);
+      // text("temperature is " + temp, width/2, 350);
+      // text("description: " + desc, width/2, 375);
 
       xPosition = map(gamma, -10, 30, 0, width);
       yPosition = map(beta, 60, 90, 0, height);
@@ -103,15 +103,6 @@ function draw() {
           text("up?", width/2, 0);
           text("down?", width/2, height);
 
-          fill('white');
-          //noStroke();
-          ellipse(x-100, 150, 200, 100);
-          ellipse(x-200, 60, 130, 70);
-          ellipse(x-60, 20, 150, 75);
-
-
-          // move the cloud's x position
-          k = k + windspeed/4;
 
       pop();
 
@@ -146,8 +137,8 @@ function draw() {
 
 
 function getInfo(){
-
-  myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myText+',US&units=imperial&';
+  myText = myInput.value();
+  myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myInput.value()+',US&units=imperial&';
 
   //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
 
