@@ -21,6 +21,8 @@ function setup() {
 myInput = createInput();
 myInput.position(width/2-width/6, height/2);
 
+button = createButton('submit');
+button.position(width/2-width/21, height/1.5);
   // HERE is the call to get the weather.
 
 }
@@ -46,12 +48,6 @@ function draw() {
 
     case 0:
     background('red');
-
-    //myInput.position(width/2, 200);
-
-    button = createButton('submit');
-    button.position(width/2-width/21, height/1.5);
-
     button.mousePressed(changePlace);
 
     myText = '';
@@ -75,13 +71,16 @@ function draw() {
       text("description: " + desc, width/2, 375);
 
 
-
       // cloud
       fill('white');
       //noStroke();
       ellipse(x-100, 150, 200, 100);
       ellipse(x-200, 60, 130, 70);
       ellipse(x-60, 20, 150, 75);
+
+      // move the cloud's x position
+      x = x + windspeed/4;
+      if (x-300 > width) x = 0;
 
 
       //thermometer
@@ -94,9 +93,7 @@ function draw() {
       fill('white');
       rect(width-30, 10, 20, 380)
 
-      // move the cloud's x position
-      x = x + windspeed/4;
-      if (x-300 > width) x = 0;
+
 
 
       break;
