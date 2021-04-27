@@ -21,10 +21,10 @@ let myText;
 let myCityString = '';
 let myIDString = '';
 let myBigString = '';
-var sky = 0;
-var wMax, wmin;
-var hum;
-var f1, f2, f3;
+let sky = 0;
+let wMax, wmin;
+let hum;
+let f1, f2, f3;
 
 
 function setup() {
