@@ -179,6 +179,12 @@ function draw() {
 }
 
 
+function changePlace(){
+  myText = myInput.value();
+  myState = 1;
+}
+
+
 function getInfo(){
   myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myText+',US&units=imperial&';
   myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561';
