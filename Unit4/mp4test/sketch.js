@@ -22,14 +22,17 @@ let sky = 0;
 let wMax, wmin;
 let hum;
 let f1, f2, f3;
-let sun, cloud, rain, storm;
+let sun, cloud, rain, storm, snow, atmosphere;
 let newLocation = ['Birmingham, AL', 'Anchorage, AK', 'Phoenix, AZ', 'Little Rock, AR', 'Los Angeles, CA', 'Denver, CO', 'Bridgeport, CT', 'Wilmington, DE', 'Washington, DC', 'Jacksonville, FL', 'Atlanta, GA'];
 
 
 function preload(){
   sun = loadImage("assets/sunnny.jpg");
   cloud = loadImage("assets/cloud.jpg");
-  rain = loadImage("assets/rainingsky.jpg");
+  rain = loadImage("assets/rainnn.jpg");
+  storm = loadImage("assets/storm.jpg");
+  snow = loadImage("assets/snow.jpg");
+  atmosphere = loadImage("assets/atmosphere.jpg");
 
 }
 
@@ -137,18 +140,20 @@ function draw() {
           text("up?", width/2, 0);
           text("down?", width/2, height);
 
-          if (sky > 499 && sky < 599) {
-            background('gray');
-          } else if (sky > 799 && sky < 801) {
+          if (sky > 299 && sky < 599) { //rain
+            background(rain);
+          } else if (sky > 799 && sky < 801) { //sun
             background(sun);
-          //  img(sun);
-          }else if (sky > 800 && sky < 805) {
-            background('green');
-          //  img(cloud);
-          }else if (sky > 599 && sky < 699) {
-            background('red');
+        }else if (sky > 800 && sky < 805) { //clouds
+            background(cloud);
+          }else if (sky > 599 && sky < 699) { //snow
+            background(snow);
+          }else if (sky >199 && sky <299){ //storm
+            background(storm);
+          }else if (sky > 699 && sky < 799){
+            background(atmosphere);
           }else {
-            background('white');
+            background('black');
           }
 
       pop();
