@@ -25,6 +25,17 @@ let sky = 0;
 let wMax, wmin;
 let hum;
 let f1, f2, f3;
+let sun, cloud, rain, storm;
+
+
+function preload(){
+  sun = loadImage("assets/sunnysky.jpg");
+  cloud = loadImage("assets/cloudysky.jpg");
+  rain = loadImage("assets/rainingsky.jpg");
+
+}
+
+
 
 
 function setup() {
@@ -99,9 +110,9 @@ function draw() {
       if (sky > 499 && sky < 599) {
         background('gray');
       } else if (sky > 799 && sky < 801) {
-        background('blue');
+        background(sun);
       }else if (sky > 800 && sky < 805) {
-        background('green');
+        background(cloud);
       }else if (sky > 599 && sky < 699) {
         background('red');
       }else {
@@ -148,6 +159,7 @@ function draw() {
       text("z = " + z.toFixed(4), 25, 190);
 
 
+      textAlign(CENTER);
       fill('white');
       textFont(f2);
       textSize(30);
