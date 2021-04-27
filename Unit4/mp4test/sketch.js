@@ -23,7 +23,7 @@ let wMax, wmin;
 let hum;
 let f1, f2, f3;
 let sun, cloud, rain, storm, snow, atmosphere;
-let newLocation = ['Birmingham, AL', 'Anchorage, AK', 'Phoenix, AZ', 'Little Rock, AR', 'Los Angeles, CA', 'Denver, CO', 'Bridgeport, CT', 'Wilmington, DE', 'Washington, DC', 'Jacksonville, FL', 'Atlanta, GA'];
+let newLocation = ['Birmingham, AL', 'Anchorage, AK', 'Phoenix, AZ', 'Little Rock, AR', 'Los Angeles, CA', 'Denver, CO', 'Bridgeport, CT', 'Wilmington, DE', 'Washington, DC', 'Jacksonville, FL', 'Atlanta, GA', 'Honolulu, HI', 'Boise, ID', 'Chicago, IL', 'Indianapolis, IN', 'Des Moines, IA', 'Wichita, KS', 'Louisville, KY', 'New Orleans, LA', 'Portland, ME', 'Baltimore, MD', 'Boston, MA', 'Detroit, MI', 'Minneapolis, MN', 'Jackson, MS', 'Kansas City, MO', 'Billings, MT', 'Omaha, NE', 'Las Vegas, NV', 'Manchester, NH', 'Newark, NJ', 'Albuquerque, NM', 'New York City, NY', 'Charlotte, NC', 'Fargo, ND', 'Columbus, OH', 'Oklahoma City, OK', 'Portland, OR', 'Philadelphia, PA', 'Providence, RI', 'Charleston, SC', 'Sioux Falls, SD', 'Nashville, TN', 'Houston, TX', 'Salt Lake City, UT', 'Burlington, VT', 'Virginia Beach, VA', 'Seattle, WA', 'Charleston, WV', 'Milwaukee, WI', 'Cheyenne, WY'];
 
 
 function preload(){
@@ -49,7 +49,7 @@ function setup() {
   myInput.position(width/2-width/6, height/2 + height/3.5);
 
   button = createButton('submit');
-  button.position(width/2-width/21, height/1.5 + height/4.5);
+  button.position(width/2-width/20, height/1.5 + height/4.5);
 
 rectMode(CENTER);
 
@@ -86,8 +86,9 @@ function draw() {
     background('black');
     fill('white');
     textFont(f2);
-    text("type the location of a US city and hit submit", width/2, height/2);
+    text("Enter the location of a US city and press submit", width/2, height/2);
     text("example: Chicago, IL", width/2, height/2 + height/16);
+    text("Or shake your device and be shown a random city!", width/2, height/2 + height/12)
     button.mousePressed(changePlace);
 
     break;
