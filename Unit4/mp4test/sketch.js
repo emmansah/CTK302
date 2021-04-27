@@ -96,13 +96,18 @@ function draw() {
 
     case 3:
       noStroke();
-      background('yellow');
-      //
-      // fill('black');
-      // text("What is the weather in " + weather.name + "?", width/2, 280);
-      // text("windspeed is " + windspeed, width/2, 325);
-      // text("temperature is " + temp, width/2, 350);
-      // text("description: " + desc, width/2, 375);
+      if (sky > 499 && sky < 599) {
+        background('gray');
+      } else if (sky > 799 && sky < 801) {
+        background('blue');
+      }else if (sky > 800 && sky < 805) {
+        background('green');
+      }else if (sky > 599 && sky < 699) {
+        background('red');
+      }else {
+        background('white');
+      }
+
 
       xPosition = map(gamma, -10, 30, 0, width);
       yPosition = map(beta, 60, 90, 0, height);
@@ -141,11 +146,34 @@ function draw() {
       text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
       text("y = " + y.toFixed(2), 25, 170);
       text("z = " + z.toFixed(4), 25, 190);
-      text("What is the weather in " + weather.name, 25, 210);
-      text("windspeed is " + windspeed, 25, 230);
-      text("temperature is " + temp, 25, 260);
-      text("description: " + desc, 25, 290);
 
+
+      fill('white');
+      textFont(f2);
+      textSize(30);
+      text(weather.name, width/2, height/9);
+
+      textFont(f1);
+      textSize(108);
+      text(rtemp + "°F", width/2, height/3);
+
+      textFont(f2);
+      textSize(16);
+      text("max " + wMax + "°F | min " + wMin + "°F", width/2, height/3 + height/18);
+
+      textFont(f3);
+      textSize(28);
+      text("feels like " + fltemp + "°F", width/2, height/3 + height/7.5)
+
+      textFont(f2);
+      textSize(20);
+      text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/10);
+      text("humidity: " + hum +"%", width/2, height/2 + height/7.5);
+      text("description: " + desc, width/2, height/2+height/6);
+
+
+      myText = '';
+      button.mousePressed(changePlace);
       break;
   }
 }
