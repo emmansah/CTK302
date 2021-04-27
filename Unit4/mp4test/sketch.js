@@ -179,7 +179,7 @@ function draw() {
 
       textFont(f3);
       textSize(28);
-      text("feels like " + fltemp + "°F", width/2, height/3 + height/7.5)
+      text("feels like " + fltemp + "°F", width/2, height/3 + height/7.5);
 
       textFont(f2);
       textSize(20);
@@ -200,7 +200,6 @@ function changePlace(){
   myText = myInput.value();
   myInput.value('');
   myState = 1;
-  }
 }
 
 
