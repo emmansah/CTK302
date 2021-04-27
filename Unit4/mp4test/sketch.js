@@ -80,8 +80,6 @@ function draw() {
   textSize(20);
 
   switch (myState) {
-
-
     case 0:
     background('black');
     fill('white');
@@ -90,37 +88,22 @@ function draw() {
     text("example: Chicago, IL", width/2, height/2 + height/16);
     text("Or shake your device and be shown a random city!", width/2, height/2 + height/12)
     button.mousePressed(changePlace);
-
     break;
 
-    case 1:
-    getInfo()
 
+    case 1:
+      getInfo()
       break;
 
+
     case 2:
-
-    if (weather) {
-      myState = 3;
-    }
-
+      if (weather) {
+        myState = 3; }
       break;
 
 
     case 3:
       noStroke();
-      // if (sky > 499 && sky < 599) {
-      //   background('gray');
-      // } else if (sky > 799 && sky < 801) {
-      //   background('blue');
-      // }else if (sky > 800 && sky < 805) {
-      //   background('green');
-      // }else if (sky > 599 && sky < 699) {
-      //   background('red');
-      // }else {
-      //   background('white');
-      // }
-
 
       xPosition = map(gamma, -10, 30, 0, width);
       yPosition = map(beta, 60, 90, 0, height);
@@ -202,7 +185,7 @@ function draw() {
 
 
       myText = '';
-      myInput = '';
+      myInput.value('');
       button.mousePressed(changePlace);
       break;
   }
@@ -211,6 +194,7 @@ function draw() {
 
 function changePlace(){
   myText = myInput.value();
+  myInput.value('');
   myState = 1;
 }
 
@@ -219,9 +203,7 @@ function getInfo(){
   myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myText+',US&units=imperial&';
   myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561';
   myBigString = myCityString + myIDString ;
-
   loadJSON(myBigString, gotData);
-
   myState = 2;
 }
 
@@ -231,6 +213,7 @@ function deviceShaken(){
   myInput = '';
   myState = 1;
 }
+
 
 // Read in gyroscope data
 window.addEventListener('deviceorientation', function(e) {
