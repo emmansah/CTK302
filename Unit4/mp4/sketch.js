@@ -47,12 +47,12 @@ function setup() {
   f3 = loadFont("assets/LMlight.otf");
 
   myInput = createInput();
-  myInput.position(width/2-width/6, height/2 + height/3.5);
+  myInput.position(width/2-width/6, height-height/8.5);
 
   button = createButton('submit');
   button.size(80);
   button.style('background-color', 'white');
-  button.position(width/2-width/10, height/1.5 + height/4.5);
+  button.position(width/2-width/10, height-height/6);
 
   setShakeThreshold(threshold);
   rectMode(CENTER);
