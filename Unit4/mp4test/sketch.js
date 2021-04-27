@@ -50,7 +50,7 @@ function setup() {
   myInput.position(width/2-width/6, height/2 + height/3.5);
 
   button = createButton('submit');
-  button.position(width/2-width/24, height/1.5 + height/4.5);
+  button.position(width/2-width/18, height/1.5 + height/4.5);
 
   setShakeThreshold(threshold);
   rectMode(CENTER);
@@ -184,12 +184,10 @@ function draw() {
       textFont(f2);
       textSize(20);
       text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/11);
-      text("humidity: " + hum +"%", width/2, height/2 + height/7.5);
+      text("humidity: " + hum +"%", width/2, height/2 + height/7.2);
       text("description: " + desc, width/2, height/2+height/5.5);
 
 
-      //myText = '';
-      //myInput.value('');
       button.mousePressed(changePlace);
       break;
   }
