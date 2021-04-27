@@ -6,7 +6,7 @@ let xPosition = 0;
 let yPosition = 0;
 let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
-let threshold = 24;
+let threshold = 22;
 let weather;
 let weatherID = 0; // returned in the JSON weather element
 let myState = 0;
@@ -88,9 +88,9 @@ function draw() {
     textSize(20);
     text("Enter the location of a US city and press submit", width/2, height/2, windowWidth-100, windowHeight-100);
     textSize(14);
-    text("example: Chicago, IL", width/2, height/2 + height/12, windowWidth-100, windowHeight-100);
+    text("example: Chicago, IL", width/2, height/2 + height/10, windowWidth-100, windowHeight-100);
     textSize(20);
-    text("Or shake your device and be shown a random city!", width/2, height/2 + height/8, windowWidth-100, windowHeight-100);
+    text("Or shake your device and be shown a random city!", width/2, height/2 + height/6, windowWidth-100, windowHeight-100);
     button.mousePressed(changePlace);
     break;
 
@@ -146,21 +146,21 @@ function draw() {
 
       pop();
 
-      fill('black');
-      textAlign(LEFT);
-      textSize(22);
-      fill('black');
-      text("orientation data:", 25, 25);
-      textSize(20);
-      text("alpha: " + alpha, 25, 50);
-      text("beta: " + beta, 25, 70);
-      text("gamma: " + gamma, 25, 90);
-      textSize(22);
-      text("acceleration data:", 25, 125);
-      textSize(20);
-      text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
-      text("y = " + y.toFixed(2), 25, 170);
-      text("z = " + z.toFixed(4), 25, 190);
+      // fill('black');
+      // textAlign(LEFT);
+      // textSize(22);
+      // fill('black');
+      // text("orientation data:", 25, 25);
+      // textSize(20);
+      // text("alpha: " + alpha, 25, 50);
+      // text("beta: " + beta, 25, 70);
+      // text("gamma: " + gamma, 25, 90);
+      // textSize(22);
+      // text("acceleration data:", 25, 125);
+      // textSize(20);
+      // text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
+      // text("y = " + y.toFixed(2), 25, 170);
+      // text("z = " + z.toFixed(4), 25, 190);
 
 
       textAlign(CENTER);
@@ -197,11 +197,6 @@ function draw() {
 
 
 function changePlace(){
-  if (myInput.value() = ''){
-    textFont(f2);
-    textSize(16);
-    text("Enter a location or shake the device", width/2, height/2+height/3, windowWidth-100, windowHeight-100);
-  } else{
   myText = myInput.value();
   myInput.value('');
   myState = 1;
