@@ -157,7 +157,7 @@ function draw() {
 
       textFont(f2);
       textSize(22);
-      text(desc, width/2, height/2+height/8.5);
+      text(desc, width/2, height/2+height/10);
       textSize(20);
       text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/7.2);
       text("humidity: " + hum +"%", width/2, height/2 + height/5.5);
