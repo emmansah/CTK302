@@ -107,17 +107,17 @@ function draw() {
 
     case 3:
       noStroke();
-      if (sky > 499 && sky < 599) {
-        background('gray');
-      } else if (sky > 799 && sky < 801) {
-        background(sun);
-      }else if (sky > 800 && sky < 805) {
-        background(cloud);
-      }else if (sky > 599 && sky < 699) {
-        background('red');
-      }else {
-        background('white');
-      }
+      // if (sky > 499 && sky < 599) {
+      //   background('gray');
+      // } else if (sky > 799 && sky < 801) {
+      //   background('blue');
+      // }else if (sky > 800 && sky < 805) {
+      //   background('green');
+      // }else if (sky > 599 && sky < 699) {
+      //   background('red');
+      // }else {
+      //   background('white');
+      // }
 
 
       xPosition = map(gamma, -10, 30, 0, width);
@@ -139,6 +139,19 @@ function draw() {
           text("up?", width/2, 0);
           text("down?", width/2, height);
 
+          if (sky > 499 && sky < 599) {
+            background('gray');
+          } else if (sky > 799 && sky < 801) {
+            background('blue');
+            img(sun);
+          }else if (sky > 800 && sky < 805) {
+            background('green');
+            img(cloud);
+          }else if (sky > 599 && sky < 699) {
+            background('red');
+          }else {
+            background('white');
+          }
 
       pop();
 
