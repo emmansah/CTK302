@@ -6,6 +6,7 @@ let xPosition = 0;
 let yPosition = 0;
 let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
+let threshold = 24;
 let weather;
 let weatherID = 0; // returned in the JSON weather element
 let myState = 0;
@@ -51,12 +52,13 @@ function setup() {
   button = createButton('submit');
   button.position(width/2-width/24, height/1.5 + height/4.5);
 
-rectMode(CENTER);
+  setShakeThreshold(threshold);
+  rectMode(CENTER);
 
 }
 
 
-//function gotData is new!!
+
 function gotData(data) {
   weather = data;
   console.log(weather); // for debugging purposes, print out the JSON data when we get it.
@@ -70,7 +72,6 @@ function gotData(data) {
   hum = weather.main.humidity;
 
 }
-//!!
 
 
 
