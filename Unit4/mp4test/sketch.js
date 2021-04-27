@@ -11,8 +11,8 @@ let weatherID = 0; // returned in the JSON weather element
 let myState = 0;
 let windspeed = 0 ;
 let temp = 0;
-let desc = "";
-let myInput = "";
+let desc = '';
+let myInput = '';
 let button;
 let myText;
 let myCityString = '';
@@ -196,6 +196,7 @@ function draw() {
 
 
       myText = '';
+      myInput = '';
       button.mousePressed(changePlace);
       break;
   }
@@ -221,7 +222,7 @@ function getInfo(){
 
 function deviceShaken(){
   myText = random(newLocation);
-  myInput = "";
+  myInput = '';
   myState = 1;
 }
 
