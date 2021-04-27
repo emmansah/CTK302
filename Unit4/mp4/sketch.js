@@ -47,7 +47,7 @@ function setup() {
   f3 = loadFont("assets/LMlight.otf");
 
   myInput = createInput();
-  myInput.position(width/2-width/6, height-height/6);
+  myInput.position(width/2-width/6, height-height/5.2);
 
   button = createButton('submit');
   button.size(80);
