@@ -84,9 +84,9 @@ function draw() {
     background('black');
     fill('white');
     textFont(f2);
-    text("Enter the location of a US city and press submit", width/2, height/2, windowWidth, windowHeight);
-    text("example: Chicago, IL", width/2, height/2 + height/14, windowWidth, windowHeight);
-    text("Or shake your device and be shown a random city!", width/2, height/2 + height/10, windowWidth, windowHeight);
+    text("Enter the location of a US city and press submit", width/2, height/2, windowWidth-100, windowHeight-100);
+    text("example: Chicago, IL", width/2, height/2 + height/14, windowWidth-100, windowHeight-100);
+    text("Or shake your device and be shown a random city!", width/2, height/2 + height/10, windowWidth-100, windowHeight-100);
     button.mousePressed(changePlace);
     break;
 
