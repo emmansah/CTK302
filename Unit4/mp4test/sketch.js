@@ -197,11 +197,14 @@ function draw() {
 
 function changePlace(){
   if (myInput = ''){
-    myState = 3;
-  }
+    textFont(f2);
+    textSize(16);
+    text("Enter a location or shake the device", width/2, height/2+height/3, windowWidth-100, windowHeight-100);
+  } else{
   myText = myInput.value();
   myInput.value('');
   myState = 1;
+  }
 }
 
 
