@@ -6,7 +6,7 @@ let xPosition = 0;
 let yPosition = 0;
 let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
-let threshold = 24;
+let threshold = 26;
 let weather;
 let weatherID = 0; // returned in the JSON weather element
 let myState = 0;
@@ -157,7 +157,7 @@ function draw() {
 
       textFont(f2);
       textSize(22);
-      text(desc, width/2, height/2+height/10);
+      text(desc, width/2, height/2+height/8.5);
       textSize(20);
       text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/7.2);
       text("humidity: " + hum +"%", width/2, height/2 + height/5.5);
