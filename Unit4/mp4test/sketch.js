@@ -55,7 +55,6 @@ function setup() {
   button.position(width/2-width/18, height/1.5 + height/4.5);
 
   setShakeThreshold(threshold);
-  rectMode(CENTER);
 
 }
 
@@ -63,7 +62,7 @@ function setup() {
 
 function gotData(data) {
   weather = data;
-  console.log(weather); // for debugging purposes, print out the JSON data when we get it.
+//  console.log(weather); // for debugging purposes, print out the JSON data when we get it.
   windspeed = weather.wind.speed;
   rtemp = round(weather.main.temp);
   fltemp = round(weather.main.feels_like);
@@ -123,7 +122,6 @@ function draw() {
           noStroke();
           textSize(200);
           textAlign(CENTER);
-        //  text("BOO!", width / 2, height / 2);
           textSize(50);
           text("right?", width, height/2);
           text("left?", 0, height/2);
@@ -140,30 +138,13 @@ function draw() {
             background(snow);
           }else if (sky >199 && sky <299){ //storm
             background(storm);
-          }else if (sky > 699 && sky < 799){
+          }else if (sky > 699 && sky < 799){ //fog and stuff
             background(atmosphere);
           }else {
             background('black');
           }
 
       pop();
-
-      // fill('black');
-      // textAlign(LEFT);
-      // textSize(22);
-      // fill('black');
-      // text("orientation data:", 25, 25);
-      // textSize(20);
-      // text("alpha: " + alpha, 25, 50);
-      // text("beta: " + beta, 25, 70);
-      // text("gamma: " + gamma, 25, 90);
-      // textSize(22);
-      // text("acceleration data:", 25, 125);
-      // textSize(20);
-      // text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
-      // text("y = " + y.toFixed(2), 25, 170);
-      // text("z = " + z.toFixed(4), 25, 190);
-
 
       textAlign(CENTER);
       fill('white');
@@ -188,7 +169,6 @@ function draw() {
       text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/11);
       text("humidity: " + hum +"%", width/2, height/2 + height/7.2);
       text("description: " + desc, width/2, height/2+height/5.5);
-
 
       button.mousePressed(changePlace);
       break;
