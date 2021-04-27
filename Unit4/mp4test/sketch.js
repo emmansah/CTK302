@@ -143,10 +143,10 @@ function draw() {
             background('gray');
           } else if (sky > 799 && sky < 801) {
             background('blue');
-            img(sun);
+          //  img(sun);
           }else if (sky > 800 && sky < 805) {
             background('green');
-            img(cloud);
+          //  img(cloud);
           }else if (sky > 599 && sky < 699) {
             background('red');
           }else {
