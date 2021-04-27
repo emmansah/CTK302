@@ -6,7 +6,7 @@ let xPosition = 0;
 let yPosition = 0;
 let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
-let threshold = 22;
+let threshold = 24;
 let weather;
 let weatherID = 0; // returned in the JSON weather element
 let myState = 0;
@@ -69,8 +69,8 @@ function gotData(data) {
   fltemp = round(weather.main.feels_like);
   desc = weather.weather[0].description;
   sky = weather.weather[0].id;
-  wMax = weather.main.temp_max;
-  wMin = weather.main.temp_min;
+  wMax = round(weather.main.temp_max);
+  wMin = round(weather.main.temp_min);
   hum = weather.main.humidity;
 
 }
@@ -166,10 +166,11 @@ function draw() {
       text("feels like " + fltemp + "°F", width/2, height/3 + height/7.5);
 
       textFont(f2);
+      textSize(22);
+      text(desc, width/2, height/2+height/10);
       textSize(20);
-      text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/11);
-      text("humidity: " + hum +"%", width/2, height/2 + height/7.2);
-      text("description: " + desc, width/2, height/2+height/5.5);
+      text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/7.2);
+      text("humidity: " + hum +"%", width/2, height/2 + height/5.5);
 
       button.mousePressed(changePlace);
       break;
