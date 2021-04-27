@@ -196,6 +196,9 @@ function draw() {
 
 
 function changePlace(){
+  if (myInput = ''){
+    myState = 3;
+  }
   myText = myInput.value();
   myInput.value('');
   myState = 1;
