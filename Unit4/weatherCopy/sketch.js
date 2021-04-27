@@ -20,6 +20,7 @@ var hum;
 var f1, f2, f3;
 
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   f1 = loadFont("assets/LMreg.otf");
@@ -31,7 +32,8 @@ myInput.position(width/2-width/6, height/2 + height/3.5);
 
 button = createButton('submit');
 button.position(width/2-width/21, height/1.5 + height/4.5);
-  // HERE is the call to get the weather.
+
+
 
 }
 

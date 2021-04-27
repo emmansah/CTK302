@@ -6,13 +6,10 @@ let xPosition = 0;
 let yPosition = 0;
 let zPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
-
-//new!!
 let weather;
 let weatherID = 0; // returned in the JSON weather element
 let myState = 0;
 let windspeed = 0 ;
-let k = 0;
 let temp = 0;
 let desc = "";
 let myInput = "";
@@ -26,6 +23,7 @@ let wMax, wmin;
 let hum;
 let f1, f2, f3;
 let sun, cloud, rain, storm;
+let newLocation = ['Birmingham, AL', 'Anchorage, AK', 'Phoenix, AZ'];
 
 
 function preload(){
@@ -220,6 +218,11 @@ function getInfo(){
   myState = 2;
 }
 
+
+function deviceShaken(){
+  myText = random(newLocation);
+  myState = 1;
+}
 
 // Read in gyroscope data
 window.addEventListener('deviceorientation', function(e) {
