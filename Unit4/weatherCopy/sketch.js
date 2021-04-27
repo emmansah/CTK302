@@ -7,7 +7,7 @@ var x = 0;
 var windspeed = 0 ;
 var rtemp = 0;
 var fltemp = 0;
-var desk = "";
+var desc = "";
 var myInput = "";
 var button;
 var myText;
@@ -60,7 +60,11 @@ function draw() {
   switch (myState) {
 
     case 0:
-    background('red');
+    background('black');
+    fill('white');
+    textFont(f2);
+    text("type the location of a US city and hit submit", width/2, height/2);
+    text("example: Chicago, IL", width/2, height/2 + height/16);
     button.mousePressed(changePlace);
 
     break;
@@ -147,14 +151,3 @@ function getInfo(){
 
   myState = 2;
 }
-
-
-
-
-// function bg(){
-//   if (sky == 804 || 803 || 802 || 801) {
-//     background('blue');
-//   }else if (sky == 800) {
-//     background('green');
-//   }
-// }

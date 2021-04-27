@@ -15,25 +15,29 @@ let windspeed = 0 ;
 let k = 0;
 let temp = 0;
 let desc = "";
-//!!
-///extra new$$$
 let myInput = "";
 let button;
 let myText;
 let myCityString = '';
 let myIDString = '';
 let myBigString = '';
-///$$$
+var sky = 0;
+var wMax, wmin;
+var hum;
+var f1, f2, f3;
 
 
 function setup() {
-
   createCanvas(windowWidth, windowHeight);
-  //getInfo();
+  f1 = loadFont("assets/LMreg.otf");
+  f2 = loadFont("assets/NO.ttf");
+  f3 = loadFont("assets/LMlight.otf");
+
   myInput = createInput();
-   myInput.position(width/2-width/6, height/2);
-   button = createButton('submit');
-   button.center();
+  myInput.position(width/2-width/6, height/2 + height/3.5);
+
+  button = createButton('submit');
+  button.position(width/2-width/21, height/1.5 + height/4.5);
 
 rectMode(CENTER);
 
@@ -42,12 +46,16 @@ rectMode(CENTER);
 
 //function gotData is new!!
 function gotData(data) {
-
   weather = data;
   console.log(weather); // for debugging purposes, print out the JSON data when we get it.
   windspeed = weather.wind.speed;
-  temp = weather.main.temp;
+  rtemp = round(weather.main.temp);
+  fltemp = round(weather.main.feels_like);
   desc = weather.weather[0].description;
+  sky = weather.weather[0].id;
+  wMax = weather.main.temp_max;
+  wMin = weather.main.temp_min;
+  hum = weather.main.humidity;
 
 }
 //!!
@@ -63,18 +71,30 @@ function draw() {
 
 
     case 0:
-    background('pink');
-    button.mousePressed(getInfo);
+    background('black');
+    fill('white');
+    textFont(f2);
+    text("type the location of a US city and hit submit", width/2, height/2);
+    text("example: Chicago, IL", width/2, height/2 + height/16);
+    button.mousePressed(changePlace);
+
     break;
 
-
     case 1:
-      if (weather) {
-        myState = 2;
-      }
+    getInfo()
+
       break;
 
     case 2:
+
+    if (weather) {
+      myState = 3;
+    }
+
+      break;
+
+
+    case 3:
       noStroke();
       background('yellow');
       //
@@ -130,25 +150,15 @@ function draw() {
   }
 }
 
-// function changePlace(){
-//   myText = myInput.value();
-//   getInfo();
-// }
-
 
 function getInfo(){
-  myText = myInput.value();
-  myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myInput.value()+',US&units=imperial&';
-
-  //You can also use "zipcode" - var myJSONString = 'https://api.openweathermap.org/data/2.5/weather?zip=61820,us&units=imperial&';
-
-  myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561'; // USE YOUR ID HERE, take out the x's!!!
-
+  myCityString = 'https://api.openweathermap.org/data/2.5/weather?q='+myText+',US&units=imperial&';
+  myIDString = 'appid=fa5d656d90b6f37ee574f4f7f2bfc561';
   myBigString = myCityString + myIDString ;
 
-  loadJSON(myBigString, gotData); // that gotData function happens when JSON comes back.
+  loadJSON(myBigString, gotData);
 
-  myState = 1;
+  myState = 2;
 }
 
 
