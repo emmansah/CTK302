@@ -140,7 +140,7 @@ function draw() {
           if (sky > 499 && sky < 599) {
             background('gray');
           } else if (sky > 799 && sky < 801) {
-            background('blue');
+            background(sun);
           //  img(sun);
           }else if (sky > 800 && sky < 805) {
             background('green');
