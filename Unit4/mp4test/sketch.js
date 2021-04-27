@@ -49,7 +49,7 @@ function setup() {
   myInput.position(width/2-width/6, height/2 + height/3.5);
 
   button = createButton('submit');
-  button.position(width/2-width/20, height/1.5 + height/4.5);
+  button.position(width/2-width/24, height/1.5 + height/4.5);
 
 rectMode(CENTER);
 
@@ -184,8 +184,8 @@ function draw() {
       text("description: " + desc, width/2, height/2+height/6);
 
 
-      myText = '';
-      myInput.value('');
+      //myText = '';
+      //myInput.value('');
       button.mousePressed(changePlace);
       break;
   }
