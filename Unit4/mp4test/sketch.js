@@ -52,9 +52,10 @@ function setup() {
   button = createButton('submit');
   button.size(80);
   button.style('background-color', 'white');
-  button.position(width/2-width/18, height/1.5 + height/4.5);
+  button.position(width/2-width/16, height/1.5 + height/4.5);
 
   setShakeThreshold(threshold);
+  rectMode(CENTER);
 
 }
 
