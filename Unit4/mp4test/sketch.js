@@ -23,7 +23,7 @@ let wMax, wmin;
 let hum;
 let f1, f2, f3;
 let sun, cloud, rain, storm;
-let newLocation = ['Birmingham, AL', 'Anchorage, AK', 'Phoenix, AZ'];
+let newLocation = ['Birmingham, AL', 'Anchorage, AK', 'Phoenix, AZ', 'Little Rock, AR', 'Los Angeles, CA', 'Denver, CO', 'Bridgeport, CT', 'Wilmington, DE', 'Washington, DC', 'Jacksonville, FL', 'Atlanta, GA'];
 
 
 function preload(){
@@ -221,6 +221,7 @@ function getInfo(){
 
 function deviceShaken(){
   myText = random(newLocation);
+  myInput = "";
   myState = 1;
 }
 
