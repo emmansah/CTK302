@@ -27,8 +27,8 @@ let newLocation = ['Birmingham, AL', 'Anchorage, AK', 'Phoenix, AZ', 'Little Roc
 
 
 function preload(){
-  sun = loadImage("assets/sunnysky.jpg");
-  cloud = loadImage("assets/cloudysky.jpg");
+  sun = loadImage("assets/sunnny.jpg");
+  cloud = loadImage("assets/cloud.jpg");
   rain = loadImage("assets/rainingsky.jpg");
 
 }
