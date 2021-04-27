@@ -210,7 +210,6 @@ function getInfo(){
 
 function deviceShaken(){
   myText = random(newLocation);
-  myInput = '';
   myState = 1;
 }
 
