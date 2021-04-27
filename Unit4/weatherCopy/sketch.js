@@ -15,17 +15,22 @@ var myCityString = '';
 var myIDString = '';
 var myBigString = '';
 var sky = 0;
-var myColor;
+var wMax, wmin;
+var hum;
+var f1, f2, f3;
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  f1 = loadFont("assets/LMreg.otf");
+  f2 = loadFont("assets/NO.ttf");
+  f3 = loadFont("assets/LMlight.otf");
 
 myInput = createInput();
-myInput.position(width/2-width/6, height/2);
+myInput.position(width/2-width/6, height/2 + height/3.5);
 
 button = createButton('submit');
-button.position(width/2-width/21, height/1.5);
+button.position(width/2-width/21, height/1.5 + height/4.5);
   // HERE is the call to get the weather.
 
 }
@@ -40,6 +45,9 @@ function gotData(data) {
   fltemp = round(weather.main.feels_like);
   desc = weather.weather[0].description;
   sky = weather.weather[0].id;
+  wMax = weather.main.temp_max;
+  wMin = weather.main.temp_min;
+  hum = weather.main.humidity;
 
 
 }
@@ -84,17 +92,31 @@ function draw() {
       background('white');
     }
 
-    fill('black');
+
+    fill('white');
+    textFont(f2);
+    textSize(30);
+    text(weather.name, width/2, height/9);
+
+    textFont(f1);
+    textSize(108);
+    text(rtemp + "°F", width/2, height/3);
+
+    textFont(f2);
+    textSize(16);
+    text("max " + wMax + "°F | min " + wMin + "°F", width/2, height/3 + height/18);
+
+    textFont(f3);
+    textSize(28);
+    text("feels like " + fltemp + "°F", width/2, height/3 + height/7.5)
+
+    textFont(f2);
     textSize(20);
-    text("What is the weather in " + weather.name + "?", width/2, 100);
-
-    textSize(48);
-      text(rtemp + "°F", width/2, 350);
-
-        textSize(10);
-    text("feels like" + fltemp, width/2, height/2 + height/5)
-    text("windspeed is " + windspeed, width/2, height/2 + height/7);
+    text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/10);
+    text("humidity: " + hum +"%", width/2, height/2 + height/7.5);
     text("description: " + desc, width/2, height/2+height/6);
+
+
     myText = '';
     button.mousePressed(changePlace);
     // fill('white');
