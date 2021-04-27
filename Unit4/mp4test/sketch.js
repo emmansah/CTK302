@@ -179,9 +179,9 @@ function draw() {
 
       textFont(f2);
       textSize(20);
-      text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/10);
+      text("windspeed:  " + windspeed + "mph", width/2, height/2 + height/11);
       text("humidity: " + hum +"%", width/2, height/2 + height/7.5);
-      text("description: " + desc, width/2, height/2+height/6);
+      text("description: " + desc, width/2, height/2+height/5.5);
 
 
       //myText = '';
