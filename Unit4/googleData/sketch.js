@@ -1,11 +1,18 @@
 var bubbles = [];
 var myState = 0;
 var seasonsbg, timebg;
-
+var viv, zim;
 
 function preload() {
   seasonsbg = loadImage("assets/SS.png");
   timebg = loadImage("assets/ND.png");
+  viv = loadSound("assets/vivaldi.mp3");
+  zim = loadSound("assets/zimmer.mp3");
+
+  viv.loop();
+  viv.pause();
+  zim.loop();
+  zim.pause();
 
 
 }
@@ -51,34 +58,50 @@ function draw() {
 
 switch(myState){
   case 0:
-
-  background('blue');
+  background('gray');
+  textSize(40);
   fill('white');
-  text("click to switch between groups", width/2, height/2, 700, 700);
+  text("click to switch between groups", width/2, height/2);
   break;
 
 
 
-case 1:
+  case 1:
+  zim.pause();
+  viv.play();
+  myState = 2;
+  break;
 
+
+
+  case 2:
   background(seasonsbg);
   // // iterate through the bubbles and display the objects!
   for (let i = 0; i < bubbles.length; i++) {
-    bubbles[i].displaySeason();
-    bubbles[i].move();
-  }
-break;
+  bubbles[i].displaySeason();
+  bubbles[i].move();
+    }
+  break;
 
 
-case 2:
 
-background(timebg);
-  // // iterate through the bubbles and display the objects!
-  for (let i = 0; i < bubbles.length; i++) {
-    bubbles[i].displayTime();
-    bubbles[i].move();
-  }
-break;
+
+  case 3:
+  viv.pause();
+  zim.play();
+  myState = 4;
+  break;
+
+
+
+  case 4:
+  background(timebg);
+    // // iterate through the bubbles and display the objects!
+    for (let i = 0; i < bubbles.length; i++) {
+      bubbles[i].displayTime();
+      bubbles[i].move();
+    }
+  break;
 
 }
 
@@ -115,86 +138,75 @@ class Bubble {
     //   ellipse(this.pos.x, this.pos.y, 50, 50);
     // }
 
+    textSize(18);
     noStroke();
 
     if(this.season == "Spring"){
-      // fill(74, 156, 59, this.o);
       fill(235, 204, 52, this.o);
       ellipse(this.spring, this.pos.y, 75, 75);
       fill('black');
-      text(this.season, this.spring, this.pos.y-10);
-      text(this.time, this.spring, this.pos.y+10);
+      text(this.season, this.spring, this.pos.y-3);
+      text(this.time, this.spring, this.pos.y+15);
     } else if(this.season == "Summer"){
-      // fill(235, 204, 52, this.o);
       fill(74, 156, 59, this.o);
       ellipse(this.summer, this.pos.y, 75, 75);
       fill('white');
-      text(this.season, this.summer, this.pos.y-10);
-      text(this.time, this.summer, this.pos.y+10);
+      text(this.season, this.summer, this.pos.y-3);
+      text(this.time, this.summer, this.pos.y+15);
     } else if(this.season == "Fall"){
       fill(161, 34, 46, this.o);
       ellipse(this.fall, this.pos.y, 75, 75);
       fill('white');
-      text(this.season, this.fall, this.pos.y-10);
-      text(this.time, this.fall, this.pos.y+10);
+      text(this.season, this.fall, this.pos.y-3);
+      text(this.time, this.fall, this.pos.y+15);
     } else if(this.season == "Winter"){
       fill(192, 212, 235, this.o);
       ellipse(this.winter, this.pos.y, 75, 75);
       fill('black');
-      text(this.season, this.winter, this.pos.y-10);
-      text(this.time, this.winter, this.pos.y+10);
+      text(this.season, this.winter, this.pos.y-3);
+      text(this.time, this.winter, this.pos.y+15);
     }
 
-    // fill('black');
-    // text(this.season, this.pos.x, this.pos.y-10);
-    // text(this.time, this.pos.x, this.pos.y+10);
 
-
-    // noStroke();
-    // fill(this.r, this.b, this.g, this.o);
-    // ellipse(this.pos.x, this.pos.y, 75, 75);
-    //
-    // fill('white');
-    // text(this.season, this.pos.x, this.pos.y-10);
-    // text(this.time, this.pos.x, this.pos.y+10);
   }
 
 
 
   displayTime(){
 
+    textSize(18);
     noStroke();
 
     if(this.time == "Night"){
       fill(25, 22, 120, this.o);
       ellipse(this.night, this.pos.y, 75, 75);
       fill('white');
-      text(this.season, this.night, this.pos.y-10);
-      text(this.time, this.night, this.pos.y+10);
+      text(this.season, this.night, this.pos.y+15);
+      text(this.time, this.night, this.pos.y-3);
     } else if(this.time == "Either"){
       fill(136, 128, 76, this.o);
       ellipse(this.either, this.pos.y, 75, 75);
       fill('white');
-      text(this.season, this.either, this.pos.y-10);
-      text(this.time, this.either, this.pos.y+10);
+      text(this.season, this.either, this.pos.y+15);
+      text(this.time, this.either, this.pos.y-3);
     } else if(this.time == "Day"){
       fill(247, 233, 32, this.o);
       ellipse(this.day, this.pos.y, 75, 75);
       fill('black');
-      text(this.season, this.day, this.pos.y-10);
-      text(this.time, this.day, this.pos.y+10);
+      text(this.season, this.day, this.pos.y+15);
+      text(this.time, this.day, this.pos.y-3);
     }
 
-    // fill('white');
-    // text(this.season, this.pos.x, this.pos.y-10);
-    // text(this.time, this.pos.x, this.pos.y+10);
 
   }
+
 
 // move() {
 //   this.pos.add(this.vel);
 //   if(this.pos.x > width) this.pos.x = 0;
 //   }
+
+
 move() {
   this.pos.add(this.vel);
   if(this.pos.y > height) this.pos.y = 0;
@@ -209,11 +221,11 @@ function mouseReleased() {
       myState = 1;
     break;
 
-    case 1:
-      myState = 2;
+    case 2:
+      myState = 3;
     break;
 
-    case 2:
+    case 4:
       myState = 1;
     break;
   }
