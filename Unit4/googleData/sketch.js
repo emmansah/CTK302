@@ -1,12 +1,19 @@
 var bubbles = [];
+var myState = 0;
+var seasonsbg, timebg;
+
+
+function preload() {
+  seasonsbg = loadImage("assets/SS.png");
+  timebg = loadImage("assets/ND.png");
+
+
+}
 
 function setup() {
 
-  // Tabletop stuff, for getting google spreadsheet data in.
-//  let url = '1GtE3eoYVWBv9zMPoyettXzDCEv6qdNGKio_hgEh5duM'; // this is KEY of the URL from the sheet
-  let url = '1dtEw4w9wUnaCObK7mXqRLIsDxCrTfj3PYRU-jFjPdtQ'; // this is KEY of the URL from the sheet
-// https://docs.google.com/spreadsheets/d/1dtEw4w9wUnaCObK7mXqRLIsDxCrTfj3PYRU-jFjPdtQ/edit?usp=sharing
-  //d/ to /edit is code
+  let url = '1dtEw4w9wUnaCObK7mXqRLIsDxCrTfj3PYRU-jFjPdtQ';
+
   let settings = {
     key: url, // The url of the published google sheet
     callback: gotData, // A callback for when the data comes in
@@ -16,9 +23,8 @@ function setup() {
   Tabletop.init(settings); // Grab the data from the spreadsheet!
   // End Tabletop initialization stuff
 
-
   // Regular setup code we usually have
-  createCanvas(600, 600);
+  createCanvas(800, 800);
   textAlign(CENTER);
   ellipseMode(CENTER);
   rectMode(CENTER);
@@ -29,7 +35,9 @@ function setup() {
 // Each object contains all the data for one row of the sheet
 function gotData(data) {
 
+
   console.log(data); // Prints the data in the console
+
 
   // iterate through the array of data and create an object and push it on an array called bubbles
   for (let i = 0; i < data.length; i++) {
@@ -40,13 +48,40 @@ function gotData(data) {
 
 
 function draw() {
-  background('blue');
 
+switch(myState){
+  case 0:
+
+  background('blue');
+  fill('white');
+  text("click to switch between groups", width/2, height/2, 700, 700);
+  break;
+
+
+
+case 1:
+
+  background(seasonsbg);
   // // iterate through the bubbles and display the objects!
   for (let i = 0; i < bubbles.length; i++) {
-    bubbles[i].display();
+    bubbles[i].displaySeason();
     bubbles[i].move();
   }
+break;
+
+
+case 2:
+
+background(timebg);
+  // // iterate through the bubbles and display the objects!
+  for (let i = 0; i < bubbles.length; i++) {
+    bubbles[i].displayTime();
+    bubbles[i].move();
+  }
+break;
+
+}
+
 
 }
 
@@ -58,28 +93,129 @@ class Bubble {
     this.season = mySeason;
     this.time = myTime;
     this.pos = createVector(random(width), random(height));
-    this.vel = createVector(random(5), 0);
+    // this.vel = createVector(random(5), 0);
+    this.vel = createVector(0,random(5));
+    this.o = random(220, 255);
+    this.spring = (random(40,185));
+    this.summer = (random(270,390));
+    this.fall = (random(470,595));
+    this.winter = (random(675,760));
+    this.day = (random(40,260));
+    this.either = (random(290,510));
+    this.night = (random(540,760));
+
 
   }
 
 
-  display() {
+  displaySeason() {
     // if (this.shape == "Square") {
     //   rect(this.pos.x, this.pos.y, 50, 50);
     // } else {
     //   ellipse(this.pos.x, this.pos.y, 50, 50);
     // }
 
-    ellipse(this.pos.x, this.pos.y, 75, 75);
+    noStroke();
 
-    text(this.season, this.pos.x, this.pos.y-10);
-    text(this.time, this.pos.x, this.pos.y+10);
+    if(this.season == "Spring"){
+      // fill(74, 156, 59, this.o);
+      fill(235, 204, 52, this.o);
+      ellipse(this.spring, this.pos.y, 75, 75);
+      fill('black');
+      text(this.season, this.spring, this.pos.y-10);
+      text(this.time, this.spring, this.pos.y+10);
+    } else if(this.season == "Summer"){
+      // fill(235, 204, 52, this.o);
+      fill(74, 156, 59, this.o);
+      ellipse(this.summer, this.pos.y, 75, 75);
+      fill('white');
+      text(this.season, this.summer, this.pos.y-10);
+      text(this.time, this.summer, this.pos.y+10);
+    } else if(this.season == "Fall"){
+      fill(161, 34, 46, this.o);
+      ellipse(this.fall, this.pos.y, 75, 75);
+      fill('white');
+      text(this.season, this.fall, this.pos.y-10);
+      text(this.time, this.fall, this.pos.y+10);
+    } else if(this.season == "Winter"){
+      fill(192, 212, 235, this.o);
+      ellipse(this.winter, this.pos.y, 75, 75);
+      fill('black');
+      text(this.season, this.winter, this.pos.y-10);
+      text(this.time, this.winter, this.pos.y+10);
+    }
+
+    // fill('black');
+    // text(this.season, this.pos.x, this.pos.y-10);
+    // text(this.time, this.pos.x, this.pos.y+10);
+
+
+    // noStroke();
+    // fill(this.r, this.b, this.g, this.o);
+    // ellipse(this.pos.x, this.pos.y, 75, 75);
+    //
+    // fill('white');
+    // text(this.season, this.pos.x, this.pos.y-10);
+    // text(this.time, this.pos.x, this.pos.y+10);
   }
 
 
+
+  displayTime(){
+
+    noStroke();
+
+    if(this.time == "Night"){
+      fill(25, 22, 120, this.o);
+      ellipse(this.night, this.pos.y, 75, 75);
+      fill('white');
+      text(this.season, this.night, this.pos.y-10);
+      text(this.time, this.night, this.pos.y+10);
+    } else if(this.time == "Either"){
+      fill(136, 128, 76, this.o);
+      ellipse(this.either, this.pos.y, 75, 75);
+      fill('white');
+      text(this.season, this.either, this.pos.y-10);
+      text(this.time, this.either, this.pos.y+10);
+    } else if(this.time == "Day"){
+      fill(247, 233, 32, this.o);
+      ellipse(this.day, this.pos.y, 75, 75);
+      fill('black');
+      text(this.season, this.day, this.pos.y-10);
+      text(this.time, this.day, this.pos.y+10);
+    }
+
+    // fill('white');
+    // text(this.season, this.pos.x, this.pos.y-10);
+    // text(this.time, this.pos.x, this.pos.y+10);
+
+  }
+
+// move() {
+//   this.pos.add(this.vel);
+//   if(this.pos.x > width) this.pos.x = 0;
+//   }
 move() {
   this.pos.add(this.vel);
-  if(this.pos.x > width) this.pos.x = 0;
+  if(this.pos.y > height) this.pos.y = 0;
+  }
+
 }
+
+
+function mouseReleased() {
+  switch(myState){
+    case 0:
+      myState = 1;
+    break;
+
+    case 1:
+      myState = 2;
+    break;
+
+    case 2:
+      myState = 1;
+    break;
+  }
 
 }
