@@ -53,12 +53,12 @@ function draw() {
   // image(cherry, 0, -30, 500, 400);
 
   image(pacman, 0, 0, 500, 500);
-  image(pink, 120, 300, 500, 500);
-  image(red, 340, 120, 500, 500);
-  image(yellow, 50, 200, 500, 500);
-  image(blue, 99, 720, 500, 500);
+  image(pink, -220, 50, 500, 500);
+  image(red, -140, -220, 500, 500);
+  image(yellow, 250, 170, 500, 500);
+  image(blue, 340, 100, 500, 500);
   //image(cherry, 0, 70, 500, 556);
-  image(cherry, -30, 10, 400, 400);
+  image(cherry, -60, -1100, 200, 200);
 
   // rect(0, 0, 100, 100) ;
   pop();
