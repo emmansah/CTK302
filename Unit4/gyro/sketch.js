@@ -44,13 +44,21 @@ function draw() {
   rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
 
 //  image(bunnyImage, 0, 0, 500, 500);
+  // image(pacman, 0, 0, 500, 500);
+  // image(pink, 0, 120, 500, 300);
+  // image(red, 0, 340, 500, 12);
+  // image(yellow, 0, 50, 500, 200);
+  // image(blue, 0, 99, 500, 560);
+  // //image(cherry, 0, 70, 500, 556);
+  // image(cherry, 0, -30, 500, 400);
+
   image(pacman, 0, 0, 500, 500);
-  image(pink, 0, 120, 500, 300);
-  image(red, 0, 340, 500, 12);
-  image(yellow, 0, 50, 500, 200);
-  image(blue, 0, 99, 500, 560);
+  image(pink, 120, 300, 500, 500);
+  image(red, 340, 120, 500, 500);
+  image(yellow, 50, 200, 500, 500);
+  image(blue, 99, 720, 500, 500);
   //image(cherry, 0, 70, 500, 556);
-  image(cherry, 0, -30, 500, 400);
+  image(cherry, -30, 10, 400, 400);
 
   // rect(0, 0, 100, 100) ;
   pop();
