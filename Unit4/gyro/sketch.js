@@ -43,21 +43,13 @@ function draw() {
 
   rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
 
-//  image(bunnyImage, 0, 0, 500, 500);
-  // image(pacman, 0, 0, 500, 500);
-  // image(pink, 0, 120, 500, 300);
-  // image(red, 0, 340, 500, 12);
-  // image(yellow, 0, 50, 500, 200);
-  // image(blue, 0, 99, 500, 560);
-  // //image(cherry, 0, 70, 500, 556);
-  // image(cherry, 0, -30, 500, 400);
 
   image(pacman, 0, -300, 500, 500);
-  image(pink, -280, -550, 500, 500);
+  image(pink, -330, -550, 500, 500);
   image(red, -240, -820, 500, 500);
   image(yellow, 200, 350, 500, 500);
   image(blue, 340, -220, 500, 500);
-  image(cherry, 250, -400, 200, 200);
+  image(cherry, 150, -400, 200, 200);
   image(cherry, -80, 300, 200, 200);
   image(cherry, -300, -650, 200, 200);
 
@@ -66,27 +58,22 @@ function draw() {
 
 
   // Text commands that display debugging data
-  textAlign(LEFT);
-  textSize(20);
-  fill('black');
-  text("orientation data:", 25, 25);
-  textSize(15);
-  text("alpha: " + alpha, 25, 50);
-  text("beta: " + beta, 25, 70);
-  text("gamma: " + gamma, 25, 90);
-  textSize(20);
-  text("acceleration data:", 25, 125);
-  textSize(15);
-  text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
-  text("y = " + y.toFixed(2), 25, 170);
-  text("z = " + z.toFixed(4), 25, 190);
-
-  // Text that makes CTK type in the background
+  // textAlign(LEFT);
+  // textSize(20);
   // fill('black');
-  // noStroke();
-  // textSize(200);
-  // textAlign(CENTER);
-  // text("BOO!", width / 2, height / 2 - height/3);
+  // text("orientation data:", 25, 25);
+  // textSize(15);
+  // text("alpha: " + alpha, 25, 50);
+  // text("beta: " + beta, 25, 70);
+  // text("gamma: " + gamma, 25, 90);
+  // textSize(20);
+  // text("acceleration data:", 25, 125);
+  // textSize(15);
+  // text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
+  // text("y = " + y.toFixed(2), 25, 170);
+  // text("z = " + z.toFixed(4), 25, 190);
+  //
+
 
 }
 

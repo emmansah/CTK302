@@ -54,7 +54,7 @@ function draw() {
       noStroke();
       background(163, 194, 207);
       fill(169, 207, 163);
-      rect(0, 250, width, height);
+      rect(0, 250, width-20, height);
 
       // cloud
       fill('white');
@@ -72,15 +72,15 @@ function draw() {
 
       fill('black');
       textSize(30);
-      text(weather.name, width/2, 50);
+      text(weather.name, width/2-20, 50);
       textSize(90);
-      text(temp + "°F", width/2, 180);
+      text(temp + "°F", width/2-20, 180);
       textSize(24);
-      text("feels like " + feelsLike + "°F", width/2-2, 220);
-      textSize(20);
-      text(desc, width/2, 300);
-      text("windspeed is " + windspeed + "mph", width/2, 330);
-      text("humidity is " + hum+ "%", width/2, 360);
+      text("feels like " + feelsLike + "°F", width/2-22, 220);
+      text(desc, width/2-20, 295);
+      textSize(18);
+      text("windspeed is " + windspeed + "mph", width/2-20, 330);
+      text("humidity is " + hum+ "%", width/2-20, 360);
 
 
 
@@ -100,18 +100,18 @@ function draw() {
       fill('black');
       textSize(14);
     //  text(temp +"F", width-52, -t);
-      text("-10°F -", width-52, height-7);
-      text("0°F -", width-47, height-43);
-      text("10°F -", width-50, height-78);
+      text("-10°F -", width-52, height-5);
+      text("0°F -", width-47, height-41);
+      text("10°F -", width-50, height-76);
       text("20°F -", width-50, height-113);
       text("30°F -", width-50, height-148);
-      text("40°F -", width-50, height-183);
-      text("50°F -", width-50, height-218);
-      text("60°F -", width-50, height-253);
-      text("70°F -", width-50, height-288);
-      text("80°F -", width-50, height-323);
-      text("90°F -", width-50, height-358);
-      text("100°F -", width-53, height-387);
+      text("40°F -", width-50, height-185);
+      text("50°F -", width-50, height-220);
+      text("60°F -", width-50, height-254);
+      text("70°F -", width-50, height-287);
+      text("80°F -", width-50, height-322);
+      text("90°F -", width-50, height-356);
+      text("100°F -", width-53, height-385);
 
 
 
