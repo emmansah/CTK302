@@ -6,7 +6,7 @@ let bunnyImage;
 let xPosition = 0;
 let yPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
-let pic;
+let cherry, pacman, pink, red, yellow, blue;
 
 
 function setup() {
@@ -16,7 +16,12 @@ function setup() {
 
 
   bunnyImage = loadImage("assets/bunny.png");
-  pic = loadImage("assets/oooo.jpg");
+  cherry = loadImage("assets/ch.png");
+  pacman = loadImage("assets/pm.png");
+  pink = loadImage("assets/pink.png");
+  red = loadImage("assets/red.png");
+  yellow = loadImage("assets/yellow.png");
+  blue = loadImage("assets/blue.png");
   imageMode(CENTER);
   rectMode(CENTER);
 
@@ -25,7 +30,6 @@ function setup() {
 function draw() {
 
  background('#c6f5ff'); // light blue
-//background(pic);
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -39,7 +43,15 @@ function draw() {
 
   rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
 
-  image(bunnyImage, 0, 0, 500, 500);
+//  image(bunnyImage, 0, 0, 500, 500);
+  image(pacman, 0, 0, 500, 500);
+  image(pink, 0, 120, 500, 300);
+  image(red, 0, 340, 500, 12);
+  image(yellow, 0, 50, 500, 200);
+  image(blue, 0, 99, 500, 560);
+  //image(cherry, 0, 70, 500, 556);
+  image(cherry, 0, -30, 500, 400);
+
   // rect(0, 0, 100, 100) ;
   pop();
 
@@ -61,11 +73,11 @@ function draw() {
   text("z = " + z.toFixed(4), 25, 190);
 
   // Text that makes CTK type in the background
-  fill('black');
-  noStroke();
-  textSize(200);
-  textAlign(CENTER);
-  text("BOO!", width / 2, height / 2 - height/3);
+  // fill('black');
+  // noStroke();
+  // textSize(200);
+  // textAlign(CENTER);
+  // text("BOO!", width / 2, height / 2 - height/3);
 
 }
 
